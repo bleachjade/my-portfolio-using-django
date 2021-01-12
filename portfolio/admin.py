@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import Info
 
-# Register your models here.
+class InfoAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'nick_name',
+        'email',
+    )
+
+admin.site.register(Info, InfoAdmin)
