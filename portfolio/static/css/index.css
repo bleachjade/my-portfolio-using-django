@@ -7,11 +7,13 @@
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
 }
+/* nav-bar part */
 nav{
-    background: black;
     height: 80px;
     width: 100%;
+    position: fixed; /*remove if only you don't want nav to be fixed*/
 }
 label.logo{
     font-size: 35px;
@@ -37,15 +39,18 @@ nav ul li a{
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
-}
-.logo a:hover {
     background: none;
-    color: #08F5D1;
-    text-shadow: 1.5px 1.5px white, -2px 0 #08F5D1, 0 2px #08F5D1;
+    text-shadow: none;
+    transition: background .6s, color .6s, text-shadow .5s;
+}
+a.active, .logo a:hover {
+    background: none;
+    color: white;
+    transition: .6s;
+    text-shadow: -1px 0 3px #08F5D1, 0 3px 7px #08F5D1, 1px 0 3px #08F5D1, 0 -5px 7px #08F5D1;
 }
 a.active,a:hover{
     background: #08F5D1;
-    transition: .3s;
     color: black;
 }
 .checkbtn{
@@ -60,6 +65,38 @@ a.active,a:hover{
 #check{
     display: none;
 }
+
+/* section */
+section {
+    height: calc(100vh - 80px);
+}
+/* section1 */
+.myinfo-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myinfo-wrap {
+    width: 60%;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.my-profile-pic {
+    width: 30em;
+    height: 30em;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.my-profile-pic img {
+    max-width: 100%;
+}
+
 @media (max-width: 952px){
     label.logo{
         font-size: 30px;
@@ -103,7 +140,4 @@ a.active,a:hover{
         font-size: 25px;
         padding-left: 35px;
     }
-}
-section{
-    height: calc(100vh - 80px);
 }

@@ -22,8 +22,18 @@
           <li><a href="#">About me</a></li>
           <li><a href="#">Works</a></li>
           <li><a href="#">Get in touch</a></li>
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
         </ul>
       </nav>
+
+      <section>
+          <div class="myinfo-container">
+              <div class="myinfo-wrap">
+                  <div class="myinfo-desc">test</div>
+                  <div class="my-profile-pic"><img src="{% static 'images/000041.jpeg' %}" alt="profile pic"></div>
+              </div>
+          </div>
+      </section>
 
       <section>
           <div></div>
