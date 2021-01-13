@@ -13,12 +13,20 @@
 </head>
 <body>
     <nav>
-        <h1>MY PORTFOLIO</h1>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo"><a href="{% url 'index' %}">MY PORTFOLIO</a></label>
         <ul>
-            <li>ABOUT ME</li>
-            <li>WORKS</li>
-            <li>GET IN TOUCH</li>
+          <li><a href="#">About me</a></li>
+          <li><a href="#">Works</a></li>
+          <li><a href="#">Get in touch</a></li>
         </ul>
-    </nav>
+      </nav>
+
+      <section>
+          <div></div>
+      </section>
 </body>
 </html>
