@@ -70,7 +70,7 @@ a.active,a:hover{
 
 /* section */
 section {
-    height: calc(110vh - 80px);
+    height: calc(120vh - 80px);
 }
 /* section1 */
 .myinfo-container {
@@ -141,6 +141,13 @@ section {
 }
 .my-profile-pic img:hover {
     box-shadow: 2px 2px white;
+}
+
+/* section2*/
+.work-container {
+    width: 100%;
+    margin-top: 5em;
+    color: white;
 }
 @media (max-width: 1220px) {
     .myinfo-wrap i {
@@ -261,6 +268,15 @@ section {
         width: 100%;
         font-size: 0.8em;
         margin: 1em;
-        text-shadow: 0.5px 0.5px 10px #08F5D1;
+        text-shadow: 1px 1px 10px #08F5D1;
+    }
+    .my-profile-pic {
+        height: 100%;
+        width: 80%;
+        margin-right: 0;
+        overflow: visible;
+    }
+    .my-profile-pic img {
+        border-radius: 1em;
     }
 }

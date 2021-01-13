@@ -45,7 +45,18 @@
       </section>
 
       <section>
-          <div></div>
+          <div class="work-container">
+              <div class="work-wrap">
+                {% for proj in work %}
+                  <img class="each-work">
+                  {% if proj.project_image.url %}
+                    <img src="{{ proj.get_image.url }}" alt="">{{ proj.get_image.url }}</img>
+                  {% endif %}
+                    {{ proj.project_name }}
+                  </div>
+                {% endfor %}
+              </div>
+          </div>
       </section>
 
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
