@@ -20,6 +20,7 @@ label.logo{
     line-height: 80px;
     padding: 0 80px;
     font-weight: bold;
+    text-shadow: 1px 1px black;
 }
 a:-webkit-any-link {
     color: white;
@@ -40,7 +41,7 @@ nav ul li a{
     border-radius: 3px;
     text-transform: uppercase;
     background: none;
-    text-shadow: none;
+    text-shadow: 0.5px 0 black, -0.5px 0 black, 0 0.5px black, 0 -0.5px black;
     transition: background .6s, color .6s, text-shadow .5s;
 }
 a.active, .logo a:hover {
@@ -68,7 +69,7 @@ a.active,a:hover{
 
 /* section */
 section {
-    height: calc(100vh - 80px);
+    height: calc(110vh - 80px);
 }
 /* section1 */
 .myinfo-container {
@@ -80,11 +81,50 @@ section {
 }
 
 .myinfo-wrap {
-    width: 60%;
-    background-color: red;
+    width: 75%;
+    border-radius: 1.5em;
+    border-top-left-radius: 8em;
+    background-color: #F5082C;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.myinfo-wrap i {
+    position: absolute;
+    top: 590px;
+    left: 505px;
+    color: white;
+}
+
+.myinfo-desc {
+    width: 50%;
+    line-height: 1.8em;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2.3em;
+    transform: translateY(380px);
+    opacity: 0;
+    transition: 0.8s;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+.myinfo-desc:hover {
+    transform: translateY(0px);
+    opacity: 1;
+}
+.myinfo-desc h1 {
+    font-size: 2em;
+    line-height: 1.3em;
+}
+.myinfo-desc h2 {
+    font-size: 1.5em;
+
+}
+.myinfo-desc p {
+    font-size: 1em;
 }
 
 .my-profile-pic {
@@ -92,20 +132,36 @@ section {
     height: 30em;
     border-radius: 100%;
     overflow: hidden;
+    margin: 1em;
 }
 .my-profile-pic img {
     max-width: 100%;
 }
-
-@media (max-width: 952px){
-    label.logo{
+.my-profile-pic img:hover {
+    box-shadow: 2px 2px black;
+}
+@media (max-width: 1220px) {
+    .myinfo-wrap i {
+        top: 600px;
+        left: 360px;
+    }
+}
+@media (max-width: 1024px) {
+    label.logo {
         font-size: 30px;
+    }
+}
+
+@media (max-width: 989px){
+    label.logo{
+        font-size: 27px;
         padding-left: 50px;
     }
     nav ul li a{
         font-size: 16px;
     }
 }
+
 @media (max-width: 858px){
     .checkbtn{
         display: block;
@@ -115,6 +171,7 @@ section {
         width: 100%;
         height: 100vh;
         background: #08F5D1;
+        opacity: 0.95;
         top: 80px;
         left: 100%;
         text-align: end;
@@ -139,5 +196,8 @@ section {
     label.logo{
         font-size: 25px;
         padding-left: 35px;
+    }
+    .myinfo-wrap i {
+        display: none;
     }
 }

@@ -29,8 +29,17 @@
       <section>
           <div class="myinfo-container">
               <div class="myinfo-wrap">
-                  <div class="myinfo-desc">test</div>
-                  <div class="my-profile-pic"><img src="{% static 'images/000041.jpeg' %}" alt="profile pic"></div>
+                <i class="fas fa-chevron-up fa-2x"></i>
+                  <div class="myinfo-desc">
+                    {% if info %}
+                      {% for obj in info %}
+                        <h1>{{ obj.name }}</h1>
+                        <h2>NICKNAME: {{ obj.nick_name }}</h2>
+                        <p>{{ obj.description }}</p>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                  <div class="my-profile-pic"><img src="{% static 'images/0000411.jpeg' %}" alt="profile pic"></div>
               </div>
           </div>
       </section>
