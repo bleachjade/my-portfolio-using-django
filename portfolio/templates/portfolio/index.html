@@ -47,21 +47,25 @@
       <section>
           <div class="work-container">
               <div class="work-wrap">
+                {% if work %}
                 {% for proj in work %}
-                  <img class="each-work">
-                  {% if proj.project_image.url %}
-                    <img src="{{ proj.get_image.url }}" alt="">{{ proj.get_image.url }}</img>
-                  {% endif %}
-                    {{ proj.project_name }}
+                <div class="each-work">
+                  <a href="{{ proj.github_project }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" /></a>
+                  <div class="project-desc">
+                    <h2>{{ proj.project_name }}</h2>
+                    <p>{{ proj.project_description }}</p>
+                    <a href="{{ proj.github_project }}" id="github-icon"><i class="fab fa-github"></i></a>
                   </div>
+                </div>
                 {% endfor %}
+                {% endif %}
               </div>
           </div>
       </section>
 
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
       <script type="text/javascript">
-            VanillaTilt.init(document.querySelectorAll(".my-profile-pic"), {
+            VanillaTilt.init(document.querySelectorAll(".my-profile-pic, #project-image"), {
                 max: 10,
                 speed: 300,
                 glare: true,
