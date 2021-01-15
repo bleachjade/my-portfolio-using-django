@@ -12,6 +12,15 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        <div>
+            <h5>{{ message }}</h5>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
     <nav>
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
@@ -20,8 +29,8 @@
         <label class="logo"><a href="{% url 'index' %}">MY PORTFOLIO</a></label>
         <ul>
           <li><a href="#">About me</a></li>
-          <li><a href="#section2-title">My projects</a></li>
-          <li><a href="#">Get in touch</a></li>
+          <li><a href="#work-section">My projects</a></li>
+          <li><a href="#contact-section">Get in touch</a></li>
           <li><a href="{% url 'admin:index' %}">Admin</a></li>
         </ul>
       </nav>
@@ -39,12 +48,14 @@
                       {% endfor %}
                     {% endif %}
                   </div>
-                  <div class="my-profile-pic"><img src="{% static 'images/0000411.jpeg' %}" alt="profile pic"></div>
+                  {% for img_obj in info %}
+                  <div class="my-profile-pic"><img src="{{ img_obj.get_profile_image.url }}" alt="profile pic"></div>
+                  {% endfor %}
               </div>
           </div>
       </section>
 
-      <section>
+      <section id="work-section">
           <div class="work-container">
               <div class="work-wrap">
                 <h1 id="section2-title">MY PROJECTS</h1>
@@ -67,6 +78,21 @@
                 {% endif %}
               </div>
           </div>
+      </section>
+
+      <section id="contact-section">
+        <div class="contact-container">
+          <div class="contact-wrap" style="background-color: aqua;">
+            <h1>Contact Me!</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-actions">
+                  <button type="submit">Send</button>
+                </div>
+            </form>
+          </div>
+        </div>
       </section>
 
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
