@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
-    <title>Portfolio</title>
+    <title>Jade's Portfolio</title>
     <link rel="icon" type="image/x-icon" href="{% static 'images/summary.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -82,18 +82,33 @@
 
       <section id="contact-section">
         <div class="contact-container">
-          <div class="contact-wrap" style="background-color: aqua;">
+          <div class="contact-wrap">
             <h1>Contact Me!</h1>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <div class="form-actions">
+            <div class="contact-input">
+              <form method="post" class="form-input">
+                  {% csrf_token %}
+                  <h3>From EMAIL: </h3>{{ form.from_email }}</h3>
+                  <h3>Subject: </h3>{{ form.subject }}
+                  <h3>Message: </h3>{{ form.message }}
                   <button type="submit">Send</button>
-                </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </section>
+
+      <footer>
+        <div class="footer-container">
+          {% for f in info %}
+            <div class="footer-wrap">
+              <a href="mailto:{{ f.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+              <a href="{{ f.instagram }}"><i class="fab fa-instagram"></i></a>
+              <a href="{{ f.github }}"><i class="fab fa-github"></i></a>
+            </div>
+          {% endfor %}
+        </div>
+        <small>&copy; Copyright 2021, Nattapol Boonyapornpong</small>
+      </footer>
 
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
       <script type="text/javascript">
