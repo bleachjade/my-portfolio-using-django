@@ -20,7 +20,7 @@
         <label class="logo"><a href="{% url 'index' %}">MY PORTFOLIO</a></label>
         <ul>
           <li><a href="#">About me</a></li>
-          <li><a href="#">Works</a></li>
+          <li><a href="#section2-title">My projects</a></li>
           <li><a href="#">Get in touch</a></li>
           <li><a href="{% url 'admin:index' %}">Admin</a></li>
         </ul>
@@ -47,6 +47,12 @@
       <section>
           <div class="work-container">
               <div class="work-wrap">
+                <h1 id="section2-title">MY PROJECTS</h1>
+              {% if not work %}
+                <div class="no-wrok">
+                  <h1>No work available, please contact Admin!</h1>
+                </div>
+              {% endif %}
                 {% if work %}
                 {% for proj in work %}
                 <div class="each-work">

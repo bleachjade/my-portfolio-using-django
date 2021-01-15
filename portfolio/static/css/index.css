@@ -153,14 +153,21 @@ section {
     align-items: center;
 }
 .work-wrap {
-    margin-top: 40vh;
+    margin-top: 60vh;
     width: 75%;
     word-wrap: break-word;
     padding: 1em;
 }
+#section2-title {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    margin: 2em;
+}
 .each-work {
     display: flex;
-    padding-bottom: 3em;
+    padding-top: 2em;
+    padding-bottom: 2.5em;
     align-items: center;
 }
 .each-work img {
@@ -188,6 +195,10 @@ section {
 }
 #github-icon {
     font-size: 1.5em;
+}
+
+.each-work:nth-child(even) {
+    flex-direction: row-reverse;
 }
 @media (max-width: 1220px) {
     .myinfo-wrap i {
