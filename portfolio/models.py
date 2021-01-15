@@ -9,6 +9,9 @@ class Info(models.Model):
     email = models.EmailField("email", max_length=254)
     resume = models.FileField("resume", upload_to='resumes/', max_length=100)
 
+    def get_profile_image(self):
+        return self.profile_pic
+
 class Work(models.Model):
     project_image = models.ImageField('Project image', upload_to='upload/', height_field=None, width_field=None, max_length=None)
     project_name = models.CharField('Project name', max_length=50)
@@ -17,3 +20,8 @@ class Work(models.Model):
 
     def get_image(self):
         return self.project_image
+
+class Contact(models.Model):
+    from_email = models.EmailField(max_length=150)
+    subject = models.CharField(max_length=100)
+    message = models.TextField(max_length=400)
