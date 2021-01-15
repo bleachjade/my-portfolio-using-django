@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Info, Work
+from .models import Info, Work, Contact
 
 class InfoAdmin(admin.ModelAdmin):
     list_display = (
@@ -15,5 +15,13 @@ class WorkAdmin(admin.ModelAdmin):
         'github_project'
     )
 
+class ContactAdmin(admin.ModelAdmin):
+    list_display = (
+        'from_email',
+        'subject',
+        'message'
+    )
+
 admin.site.register(Info, InfoAdmin)
 admin.site.register(Work, WorkAdmin)
+admin.site.register(Contact, ContactAdmin)
