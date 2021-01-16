@@ -124,6 +124,8 @@ USE_TZ = True
 STATICFILES_DIRS = ('portfolio/static',)
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/jadenttp/mysite/static'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/jadenttp/mysite/media'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'will@learndjango.com'
