@@ -142,4 +142,4 @@ CLOUDINARY = {
   'api_secret': '-w8PGl2_QR0OB8sdYVnlP0kCOXc',
 }
 
-CLOUDINARY_URL='cloudinary://139174326545982:-w8PGl2_QR0OB8sdYVnlP0kCOXc@kasetsart-university?api_proxy=https://api.cloudinary.com/v1_1/kasetsart-university'
+CLOUDINARY_URL='cloudinary://139174326545982:-w8PGl2_QR0OB8sdYVnlP0kCOXc@kasetsart-university?api_proxy=https://api.cloudinary.com/v1_1/kasetsart-university:8080'
