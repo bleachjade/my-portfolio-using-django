@@ -140,6 +140,7 @@ CLOUDINARY = {
   'cloud_name': 'kasetsart-university',  
   'api_key': '139174326545982',  
   'api_secret': '-w8PGl2_QR0OB8sdYVnlP0kCOXc',
+  'api_proxy': 'proxy.server:3128'
 }
 
 CLOUDINARY_URL='cloudinary://139174326545982:-w8PGl2_QR0OB8sdYVnlP0kCOXc@kasetsart-university?api_proxy=proxy.server:3128'
