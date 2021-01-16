@@ -139,5 +139,6 @@ EMAIL_USE_TLS = True
 CLOUDINARY = {
   'cloud_name': 'kasetsart-university',  
   'api_key': '139174326545982',  
-  'api_secret': '-w8PGl2_QR0OB8sdYVnlP0kCOXc',  
+  'api_secret': '-w8PGl2_QR0OB8sdYVnlP0kCOXc',
+  'api_proxy':'http://x.x.x.x:8080/',
 }
