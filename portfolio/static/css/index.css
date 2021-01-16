@@ -5,6 +5,7 @@
     list-style: none;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -312,6 +313,7 @@ section {
 }
 ::-webkit-scrollbar {
     width: inherit;
+    display: none;
 }
 input, textarea {
     border-width: 0;
@@ -536,7 +538,7 @@ footer small {
     }
 }
 
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
     label.logo {
         font-size: 20px;
     }
@@ -615,3 +617,15 @@ footer small {
         font-size: 2em;
     }
 }
+
+@media only screen and (max-width: 376px) {
+    .myinfo-wrap {
+        margin-top: 0;
+        width: 80%;
+    }
+    #info-section {
+        height: calc(130vh - 100px);
+        margin-bottom: 1em;
+    }
+}
+
