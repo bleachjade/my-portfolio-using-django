@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'portfolio.apps.PortfolioConfig',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,8 +125,8 @@ USE_TZ = True
 STATICFILES_DIRS = ('portfolio/static',)
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/jadenttp/mysite/static'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/jadenttp/mysite/media'
+MEDIA_URL = ''
+MEDIA_ROOT = ''
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'will@learndjango.com'
@@ -134,3 +135,9 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='dummy-api-key')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+CLOUDINARY = {
+  'cloud_name': 'kasetsart-university',  
+  'api_key': '139174326545982',  
+  'api_secret': '-w8PGl2_QR0OB8sdYVnlP0kCOXc',  
+}
