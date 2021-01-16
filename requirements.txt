@@ -1,3 +1,4 @@
 Django==3.1.1
 python-decouple==3.4
 Pillow==6.1.0
+cloudinary==1.24.0
