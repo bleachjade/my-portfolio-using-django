@@ -35,7 +35,7 @@
         </ul>
       </nav>
 
-      <section>
+      <section id="info-section">
           <div class="myinfo-container">
               <div class="myinfo-wrap">
                 <i class="fas fa-chevron-up fa-2x"></i>
@@ -49,7 +49,7 @@
                     {% endif %}
                   </div>
                   {% for img_obj in info %}
-                  <div class="my-profile-pic"><img src="{{ img_obj.get_profile_image.url }}" alt="profile pic"></div>
+                  <div class="my-profile-pic"><img src="{{ img_obj.get_profile_image.url }}" alt="profile pic" loading="lazy" /></div>
                   {% endfor %}
               </div>
           </div>
@@ -67,7 +67,7 @@
                 {% if work %}
                 {% for proj in work %}
                 <div class="each-work">
-                  <a href="{{ proj.github_project }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" /></a>
+                  <a href="{{ proj.github_project }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
                   <div class="project-desc">
                     <h2>{{ proj.project_name }}</h2>
                     <p>{{ proj.project_description }}</p>
