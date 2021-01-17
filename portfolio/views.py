@@ -19,7 +19,7 @@ def index(request):
             message = form.cleaned_data['message']
             contact = Contact(from_email=from_email, subject=subject, message=message)
             try:
-                send_mail(subject, message, from_email, ['nattapol.boo@ku.th'], fail_silently=False)
+                send_mail(subject, message, from_email, ['jade26072542@gmail.com'], fail_silently=False)
                 contact.save()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')

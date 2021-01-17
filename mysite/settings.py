@@ -134,7 +134,7 @@ DEFAULT_FROM_EMAIL = 'will@learndjango.com'
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'nattapol.boo@ku.th'
+EMAIL_HOST_USER = 'jade26072542@gmail.com'
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='dummy-api-key')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
