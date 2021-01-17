@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY', default='dummy-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default="False")
 
-ALLOWED_HOSTS = ['https://jadenttp.pythonanywhere.com']
+ALLOWED_HOSTS = ['https://jadenttp.pythonanywhere.com', 'jadenttp.pythonanywhere.com']
 
 
 # Application definition
