@@ -19,14 +19,11 @@ def index(request):
             message = form.cleaned_data['message']
             contact = Contact(from_email=from_email, subject=subject, message=message)
             try:
-                send_mail(subject, message, from_email, ['jade26072542@gmail.com'], fail_silently=False)
                 contact.save()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('success')
+            messages.success(request, f"Success! Thank you for your message.")
+            return redirect('index')
     return render(request, 'portfolio/index.html', {'info': info, 'work': work, 'form': form})
-
-def successView(request):
-    return HttpResponse('Success! Thank you for your message.')
 
     
