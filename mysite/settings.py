@@ -128,15 +128,17 @@ STATIC_ROOT = '/home/jadenttp/mysite/static'
 MEDIA_URL = ''
 MEDIA_ROOT = ''
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'will@learndjango.com'
+# EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+# DEFAULT_FROM_EMAIL = 'will@learndjango.com'
 
-MAIL_SERVER = "smtp.gmail.com"
-MAIL_USERNAME = "jade26072542@gmail.com"
-MAIL_PASSWORD = config("MAIL_PASSWORD", default="dummy-password")
-MAIL_PORT = 465
-MAIL_USE_SSL = True
-MAIL_USE_TLS = False
+# SENDGRID_API_KEY = config("SENDGRID_API_KEY", default="dummy-send-api-key")
+
+# MAIL_SERVER = "smtp.gmail.com"
+# MAIL_USERNAME = "apikey"
+# MAIL_PASSWORD = config("MAIL_PASSWORD", default="dummy-password")
+# MAIL_PORT = 465
+# MAIL_USE_SSL = True
+# MAIL_USE_TLS = False
 
 CLOUDINARY = {
   'cloud_name': 'kasetsart-university',  
