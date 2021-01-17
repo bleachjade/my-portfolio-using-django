@@ -131,8 +131,10 @@ MEDIA_ROOT = ''
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'will@learndjango.com'
 
-MAIL_SERVER = "smtp.gmail.com"
-MAIL_USERNAME = "jade26072542@gmail.com"
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+
+MAIL_SERVER = "smtp.sendgrid.net"
+MAIL_USERNAME = "apikey"
 MAIL_PASSWORD = config("MAIL_PASSWORD", default="dummy-password")
 MAIL_PORT = 465
 MAIL_USE_SSL = True
