@@ -131,13 +131,12 @@ MEDIA_ROOT = ''
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'will@learndjango.com'
 
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'jade26072542@gmail.com'
-EMAIL_HOST_PASSWORD =config('EMAIL_HOST_PASSWORD', default='dummy-api-key')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+MAIL_SERVER = "smtp.gmail.com"
+MAIL_USERNAME = "jade26072542@gmail.com"
+MAIL_PASSWORD = config("MAIL_PASSWORD", default="dummy-password")
+MAIL_PORT = 465
+MAIL_USE_SSL = True
+MAIL_USE_TLS = False
 
 CLOUDINARY = {
   'cloud_name': 'kasetsart-university',  
