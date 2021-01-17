@@ -125,6 +125,12 @@ section {
     height: 100%;
 }
 /* section1 */
+.my-info-mobile {
+    display: none;
+}
+.moon-background {
+    display: none;
+}
 .myinfo-container {
     width: 100%;
     height: 100%;
@@ -408,10 +414,6 @@ footer small {
     margin: 0;
 }
 
-
-@media (max-width: 1220px) {
-}
-
 @media (max-width: 1111px) {
     label.logo{
         font-size: 32.5px;
@@ -534,9 +536,6 @@ footer small {
         font-size: 25px;
         padding-left: 35px;
     }
-    .myinfo-wrap i {
-        display: none;
-    }
     .myinfo-desc h1 {
         font-size: 1.6em;
     }
@@ -560,10 +559,12 @@ footer small {
         height: 40vh;
         width: 85%;
         border-radius: 100%;
-        background-image: url(../images/moon.png);
-        background-position: center;
-        background-size: 52em;
-        background-color:white;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .moon-background {
+        position: absolute;
+        display: block;
     }
     .myinfo-desc {
         width: 100%;
@@ -632,7 +633,27 @@ footer small {
         height: 100%;
     }
     .myinfo-wrap {
-        width: 85%;
+        display: none;
+    }
+    .my-info-mobile {
+        display: block;
+        width: 100%;
+        padding: 2em;
+        border-radius: 100%;
+        position: absolute;
+        /* display: flex;
+        flex-direction: column;
+        align-items: flex-end; */
+    }
+    .my-profile-pic {
+        z-index: 99;
+    }
+    .moon-background {
+        position: absolute;
+        display: block;
+        z-index: auto;
+        margin-left: 6em;
+        opacity: 0.6;
     }
     #info-section {
         height: calc(130vh - 100px);
@@ -645,7 +666,6 @@ footer small {
         margin-bottom: 2em;
     }
     .myinfo-wrap {
-        width: 75%;
         font-size: smaller;
     }
     #info-section {
