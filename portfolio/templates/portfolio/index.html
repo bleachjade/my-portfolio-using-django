@@ -4,13 +4,14 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="HandheldFriendly" content="true">
     <title>Jade's Portfolio</title>
     <link rel="icon" type="image/x-icon" href="{% static 'images/summary.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
@@ -40,8 +41,7 @@
       <section id="info-section">
           <div class="myinfo-container">
               <div class="myinfo-wrap">
-                <i class="fas fa-chevron-up fa-2x"></i>
-                  <div class="myinfo-desc">
+                  <div class="myinfo-desc" data-aos="fade-up">
                     {% if info %}
                       {% for obj in info %}
                         <h1>{{ obj.name }}</h1>
@@ -60,7 +60,7 @@
       <section id="work-section">
           <div class="work-container">
               <div class="work-wrap">
-                <h1 id="section2-title">MY PROJECTS</h1>
+                <h1 id="section2-title" data-aos="fade-up">MY PROJECTS</h1>
               {% if not work %}
                 <div class="no-wrok">
                   <h1>No work available, please contact Admin!</h1>
@@ -68,7 +68,7 @@
               {% endif %}
                 {% if work %}
                 {% for proj in work %}
-                <div class="each-work">
+                <div class="each-work" data-aos="fade-up">
                   <a href="{{ proj.github_project }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
                   <div class="project-desc">
                     <h2>{{ proj.project_name }}</h2>
@@ -84,7 +84,7 @@
 
       <section id="contact-section">
         <div class="contact-container">
-          <div class="contact-wrap">
+          <div class="contact-wrap" data-aos="zoom-in">
             <h1>Contact Me!</h1>
             <div class="contact-input">
               <form method="post" class="form-input">
@@ -113,12 +113,18 @@
       </footer>
 
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
+      <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
       <script type="text/javascript">
             VanillaTilt.init(document.querySelectorAll(".my-profile-pic, #project-image"), {
                 max: 10,
                 speed: 300,
                 glare: true,
                 "max-glare": 1,
+            });
+
+            AOS.init({
+              easing: 'ease-in-quad',
+              duration: 800,
             });
         </script>
 </body>
