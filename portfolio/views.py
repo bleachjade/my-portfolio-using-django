@@ -31,7 +31,7 @@ def index(request):
 
 def pdf_view(request):
     try:
-        return FileResponse(open('media/upload/my_resume.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('portfolio/static/pdf/my_resume.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
