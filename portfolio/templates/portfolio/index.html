@@ -32,7 +32,7 @@
         <label class="logo"><a href="{% url 'index' %}">MY PORTFOLIO</a></label>
         <ul>
           <li><a href="#">About me</a></li>
-          <li><a href="{% url 'pdf_view' %}">Resume</a></li>
+          <li><a href="{% static 'pdf/my_resume.pdf' %}">Resume</a></li>
           <li><a href="#work-section">My projects</a></li>
           <li><a href="#contact-section">Get in touch</a></li>
           <li><a href="{% url 'admin:index' %}">Admin</a></li>
