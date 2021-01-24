@@ -5,6 +5,7 @@ from django.core.mail import send_mail, BadHeaderError
 from .models import Info, Work, Contact
 from .forms import ContactForm
 from django.conf import settings
+from django.templatetags.static import static
 
 import os
 
@@ -29,10 +30,5 @@ def index(request):
             return redirect('index')
     return render(request, 'portfolio/index.html', {'info': info, 'work': work, 'form': form})
 
-def pdf_view(request):
-    try:
-        return FileResponse(open('portfolio/static/pdf/my_resume.pdf', 'rb'), content_type='application/pdf')
-    except FileNotFoundError:
-        raise Http404()
 
     

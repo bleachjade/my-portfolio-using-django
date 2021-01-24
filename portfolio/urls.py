@@ -5,7 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('my_resume', views.pdf_view, name='pdf_view'),
 ]
 
 if settings.DEBUG:
