@@ -8,7 +8,7 @@ class Info(models.Model):
     nick_name = models.CharField("Nickname", max_length=20)
     description = models.CharField("description about yourself", max_length=300)
     email = models.EmailField("email", max_length=254)
-    resume = models.FileField("resume", upload_to='upload/', max_length=100)
+    # resume = CloudinaryField("resume", proxy="http://proxy.server:3128")
     instagram = models.URLField('IG', max_length=200, default='https://instagram.com/jadenttp')
     github = models.URLField('Github', max_length=200, default='https://github.com/bleachjade')
 
