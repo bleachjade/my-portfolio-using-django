@@ -1,9 +1,12 @@
-from django.shortcuts import render, reverse, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect, FileResponse, Http404
 from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError
-from .models import Info, Work,Contact
+from .models import Info, Work, Contact
 from .forms import ContactForm
+from django.conf import settings
+
+import os
 
 
 def index(request):
@@ -25,5 +28,11 @@ def index(request):
             messages.success(request, f"Success! Thank you for your message.")
             return redirect('index')
     return render(request, 'portfolio/index.html', {'info': info, 'work': work, 'form': form})
+
+def pdf_view(request):
+    try:
+        return FileResponse(open('media/upload/my_resume.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
 
     
