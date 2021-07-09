@@ -6,6 +6,8 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    cursor: url(../images/lightsaber64.png), default;
+
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -28,6 +30,191 @@ body::after {
     left: 0;
     z-index: -1;   
 }
+#header {
+    transition: 0.2s;
+  }
+/* skill */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    }
+    
+    body{
+    background: #ccc;
+    }
+
+    /* Float four columns side by side */
+.skill-column {
+    float: left;
+    width: 100%;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .skill-row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .skill-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .skill-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .skill-card {
+    border-radius: 20px;
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 10px 10px 20px -10px rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    transition: .5s ease;
+  }
+  
+  .skill-title{
+    padding: 0 0 1.5em 0;
+    bottom: 10%;
+    letter-spacing: 5px;
+  }
+  .skill-card > img {
+      padding: 1em 0 1em 0;
+      max-width: 100%;
+      clip-path: circle(60px at center);
+  }
+    
+    .skills-section{
+    padding-top: 20px;
+    }
+    
+    .skills-header{
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+    position: relative;
+    }
+    
+    .skills-header:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #08F5D1;
+    border-radius: 2px;
+    }
+    
+    .skills-container{
+    display: grid;
+    grid-tempLate-columns: repeat(5, 1fr);
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    grid-gap:1rem;
+    padding: 1rem 80px;
+    font-size: 1.2rem;
+    }
+    .skills-box{
+    padding: 1rem;
+    color: #000;
+    cursor:pointer;
+    }
+    .skills-box:hover > .skills-title: after, 
+    .skills-box:hover > .skills-title: before{
+    width: 30px;
+    }
+    .skills-box:hover .skills-img{
+    transform: translateX(-20px);
+    }
+    
+    .skills-title{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    }
+    
+    .skills-title:after{
+    content: '';
+    position:absolute;
+    bottom: 0;
+    rigth: 50%;
+    width:20px;
+    height:4px;
+    border-radius: 2px 0 0 2px;
+    background-color: #2ecc71;
+    transition: .5s;
+    }
+    
+    .skills-title:before{
+    content: '';
+    position:absolute;
+    bottom: 0;
+    left: 50%;
+    width:100px;
+    height:4px;
+    border-radius: 0 2px 2px 0;
+    background-color: #2ecc71;
+    }
+    
+    .skills-icons{
+    width:50px;
+    z-index:2;
+    }
+    
+    .skills-img{
+    width:90px;
+    height:90px;
+    position: relative;
+    border-radius: 45px;
+    background-color: #fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition: .5s;
+    }
+    
+    .skills-img:after{
+    content: '';
+    position:absolute;
+    top:0;
+    left: 0;
+    width:50%;
+    height:90px;
+    background: rgba(100, 100, 100, 0.5);
+    border-radius: 45px 0 0 45px;
+    }
+    .skills-title h3{
+    color: #333;
+    margin-top: 0.5rem;
+    }
+    @media screen and (max-width:990px){
+     .skills-container{
+     grid-tempLate-columns: repeat(2, 1fr);
+     padding: 2rem 50px;
+     }
+    }
+    
+    @media screen and (max-width:650px){
+     .skills-container{
+     grid-tempLate-columns:2fr;
+     padding: 2rem 50px;
+     }
+    } 
 /*alert*/
 .alert {
     width: 100%;
@@ -61,6 +248,7 @@ nav{
     width: 100%;
     position: fixed; /*remove if only you don't want nav to be fixed*/
     z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 label.logo{
     font-size: 35px;
@@ -84,7 +272,6 @@ nav ul li{
 }
 nav ul li a{
     color: white;
-    font-size: 21px;
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
@@ -119,10 +306,7 @@ a.active,a:hover{
 section {
     height: calc(120vh - 80px);
 }
-#work-section {
-    height: 100%;
-}
-#contact-section {
+#work-section, #intern-section, #skill-section, #freelance-section, #activity-section, #contact-section {
     height: 100%;
 }
 /* section1 */
@@ -143,13 +327,14 @@ section {
 .myinfo-wrap {
     width: 75%;
     border-radius: 1.5em;
-    border-top-left-radius: 8em;
-    background-color:rgb(224,8,41);
+    border-top-left-radius: 0;
+    background-color: transparent;
     display: flex;
     position: relative;
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 1px 1px 10px white;
+    border-top-right-radius: 15em;
 }
 
 
@@ -163,13 +348,18 @@ section {
     margin: 2.3em;
     color: white;
     text-shadow: 1px 1px black;
+    z-index: 2;
 }
 .myinfo-desc:hover {
     text-shadow: 2px 2px 3px #08F5D1;
 }
 .myinfo-desc h1 {
-    font-size: 2em;
+    color: #08F5D1;
+    font-size: 5em;
     line-height: 1.3em;
+}
+.myinfo-desc h1:hover {
+    text-shadow: 2px 2px 3px #08F5D1;
 }
 .myinfo-desc h2 {
     font-size: 1.5em;
@@ -431,13 +621,14 @@ footer small {
         margin-bottom: 4em;
     }
     .myinfo-wrap {
+        box-shadow: none;
         position: absolute;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         height: 80vh;
         width: 60%;
-        background-color: rgb(224,8,41);
+        background-color: transparent;
     }
     .myinfo-desc {
         width: 100%;
@@ -461,7 +652,7 @@ footer small {
         margin-bottom: 0.4em;
     }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1450px) {
     label.logo {
         font-size: 30px;
     }
@@ -473,7 +664,8 @@ footer small {
         z-index: 999;
         width: 100%;
         height: 100vh;
-        background: #08F5D1;
+        overflow-y: scroll;
+        background: rgb(184, 184, 184);
         opacity: 0.95;
         top: 80px;
         left: 100%;

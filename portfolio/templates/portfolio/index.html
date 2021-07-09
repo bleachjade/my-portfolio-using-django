@@ -24,7 +24,7 @@
     </div>
     {% endfor %}
     {% endif %}
-    <nav>
+    <nav id="header">
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
           <i class="fas fa-bars"></i>
@@ -32,7 +32,11 @@
         <label class="logo"><a href="{% url 'index' %}">MY PORTFOLIO</a></label>
         <ul>
           <li><a href="#">About me</a></li>
-          <li><a href="#work-section">My projects</a></li>
+          <li><a href="#skill-section">Skills</a></li>
+          <li><a href="#work-section">Projects</a></li>
+          <li><a href="#intern-section">Internship</a></li>
+          <li><a href="#freelance-section">Freelancer</a></li>
+          <li><a href="#activity-section">Activities</a></li>
           <li><a href="#contact-section">Get in touch</a></li>
           <li><a href="{% url 'admin:index' %}">Admin</a></li>
         </ul>
@@ -74,23 +78,51 @@
           </div>
       </section>
 
+      <section id="skill-section">
+        <div class="work-container">
+          <div class="work-wrap"> <!--CONTINUE HERE-->
+          <div class="skills-header">
+            <h1>Skills</h1>   
+          </div>
+          {% if not skill %}
+                <div class="no-work">
+                  <h1>No skill available, please contact Admin!</h1>
+                </div>
+              {% endif %}
+          <div class="skills-container">
+            <div class="skill-row">
+            {% if skill %}
+            {% for sk in skill %}
+              <div class="skill-column">
+                <div class="skill-card" id="skill-card" data-aos="fade-up" loading="lazy">
+                  <img src="{{ sk.get_image.url }}" alt="skill">
+                  <h3 class="skill-title">{{ sk.skill_name }}</h3>
+                </div>
+              </div>
+            {% endfor %}
+            {% endif %}
+            </div>
+          </div>
+          </div>
+      </section>
+
       <section id="work-section">
           <div class="work-container">
               <div class="work-wrap">
-                <h1 id="section2-title" data-aos="fade-up">MY PROJECTS</h1>
+                <h1 id="section2-title" data-aos="fade-up">MY PERSONAL PROJECTS</h1>
               {% if not work %}
-                <div class="no-wrok">
+                <div class="no-work">
                   <h1>No work available, please contact Admin!</h1>
                 </div>
               {% endif %}
                 {% if work %}
                 {% for proj in work %}
                 <div class="each-work" data-aos="fade-up">
-                  <a href="{{ proj.github_project }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
+                  <a href="{{ proj.project_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
                   <div class="project-desc">
                     <h2>{{ proj.project_name }}</h2>
                     <p>{{ proj.project_description }}</p>
-                    <a href="{{ proj.github_project }}" id="github-icon"><i class="fab fa-github"></i></a>
+                    <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
                 {% endfor %}
@@ -98,6 +130,81 @@
               </div>
           </div>
       </section>
+
+      <section id="intern-section">
+        <div class="work-container">
+            <div class="work-wrap">
+              <h1 id="section2-title" data-aos="fade-up">MY INTERNSHIP WORKS</h1>
+            {% if not intern_work %}
+              <div class="no-work">
+                <h1>No work available, please contact Admin!</h1>
+              </div>
+            {% endif %}
+              {% if intern_work %}
+              {% for proj in intern_work %}
+              <div class="each-work" data-aos="fade-up">
+                <a href="{{ proj.project_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
+                <div class="project-desc">
+                  <h2>{{ proj.project_name }}</h2>
+                  <p>{{ proj.project_description }}</p>
+                  <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+                </div>
+              </div>
+              {% endfor %}
+              {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <section id="freelance-section">
+      <div class="work-container">
+          <div class="work-wrap">
+            <h1 id="section2-title" data-aos="fade-up">MY FREELANCE WORKS</h1>
+          {% if not freelance_work %}
+            <div class="no-work">
+              <h1>No work available, please contact Admin!</h1>
+            </div>
+          {% endif %}
+            {% if intern_work %}
+            {% for proj in freelance_work %}
+            <div class="each-work" data-aos="fade-up">
+              <a href="{{ proj.project_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
+              <div class="project-desc">
+                <h2>{{ proj.project_name }}</h2>
+                <p>{{ proj.project_description }}</p>
+                <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+      </div>
+  </section>
+
+  <section id="activity-section">
+    <div class="work-container">
+        <div class="work-wrap">
+          <h1 id="section2-title" data-aos="fade-up">MY ACTIVITIES</h1>
+        {% if not activity %}
+          <div class="no-work">
+            <h1>No work available, please contact Admin!</h1>
+          </div>
+        {% endif %}
+          {% if activity %}
+          {% for proj in activity %}
+          <div class="each-work" data-aos="fade-up">
+            <a href="{{ proj.activity_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
+            <div class="project-desc">
+              <h2>{{ proj.activity_name }}</h2>
+              <p>{{ proj.activity_description }}</p>
+              <a href="{{ proj.activity_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+    </div>
+</section>
 
       <section id="contact-section">
         <div class="contact-container">
@@ -132,7 +239,7 @@
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
       <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
       <script type="text/javascript">
-            VanillaTilt.init(document.querySelectorAll(".my-profile-pic, #project-image"), {
+            VanillaTilt.init(document.querySelectorAll(".my-profile-pic, #project-image, #skill-card"), {
                 max: 10,
                 speed: 300,
                 glare: true,
@@ -143,6 +250,18 @@
               easing: 'ease-in-quad',
               duration: 800,
             });
+
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("header").style.height = "70px";
+                document.getElementById("header").style.fontSize = "16px";
+              } else {
+                document.getElementById("header").style.height = "85px";
+                document.getElementById("header").style.fontSize = "17px";
+              }
+            }
         </script>
 </body>
 </html>
