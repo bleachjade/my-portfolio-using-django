@@ -327,7 +327,7 @@ section {
 .myinfo-wrap {
     width: 75%;
     border-radius: 1.5em;
-    border-top-left-radius: 0;
+    /* border-top-left-radius: 0; */
     background-color: transparent;
     display: flex;
     position: relative;
@@ -335,6 +335,8 @@ section {
     justify-content: space-between;
     box-shadow: 1px 1px 10px white;
     border-top-right-radius: 15em;
+    background: black;
+    mix-blend-mode: lighten;
 }
 
 
@@ -370,18 +372,21 @@ section {
 
 .my-profile-pic {
     width: 30em;
-    height: 30em;
-    border-radius: 100%;
+    /* height: 30em; */
+    /* border-radius: 100%; */
+    border-top-right-radius: 50%;
     overflow: hidden;
-    margin: 1em;
+    margin: 1em 1em 0 1em;
 }
 .my-profile-pic img {
     max-width: 100%;
     height: auto;
     transition: box-shadow .5s;
-}
-.my-profile-pic img:hover {
-    box-shadow: 2px 2px white;
+    background-color: black;
+    mix-blend-mode: lighten;
+    background-blend-mode: exclusion;
+    object-fit: cover;
+    background-size: contain;
 }
 
 /* section2*/
@@ -844,6 +849,7 @@ footer small {
         z-index: auto;
         opacity: 1;
         position: relative;
+        mix-blend-mode: normal;
     }
     .side-crop {
         position: absolute;
@@ -892,3 +898,51 @@ footer small {
     }
 }
 
+#skill-container {
+    width: 100%;
+    height: auto;
+}
+#skill-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    padding: 1.5em;
+    width: 25%;
+    height: 100%;
+    margin: 1em;
+}
+#card > .card__image > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+#card > .card__content > .card__title {
+    font-size: 2em;
+    color: white;
+    padding: 1em;
+}
+.project-date {
+    color: white;
+    background-color: black;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.9em;
+    margin: 0.5em;
+}
+@media screen and (max-width: 551px) {
+    #skill-wrap {
+        flex-direction: column;
+    }
+    #card {
+        width: 90%;
+    }
+}

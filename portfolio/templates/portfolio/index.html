@@ -55,7 +55,7 @@
                     {% endif %}
                   </div>
                   {% for img_obj in info %}
-                  <div class="my-profile-pic"><img src="{{ img_obj.get_profile_image.url }}" alt="profile pic" loading="lazy" /></div>
+                  <div class="my-profile-pic"><img src="{{ img_obj.get_profile_image.url }}" id="starwarsPic" alt="profile pic" loading="lazy" /></div>
                   {% endfor %}
               </div>
               <div class="my-info-mobile">
@@ -80,30 +80,29 @@
 
       <section id="skill-section">
         <div class="work-container">
-          <div class="work-wrap"> <!--CONTINUE HERE-->
-          <div class="skills-header">
-            <h1>Skills</h1>   
-          </div>
-          {% if not skill %}
+          <div class="work-wrap" style="width: 100%;"> <!--CONTINUE HERE-->
+            <div class="skills-header">
+              <h1>Skills</h1>   
+            </div>
+            {% if not skill %}
                 <div class="no-work">
                   <h1>No skill available, please contact Admin!</h1>
                 </div>
               {% endif %}
-          <div class="skills-container">
-            <div class="skill-row">
-            {% if skill %}
-            {% for sk in skill %}
-              <div class="skill-column">
-                <div class="skill-card" id="skill-card" data-aos="fade-up" loading="lazy">
-                  <img src="{{ sk.get_image.url }}" alt="skill">
-                  <h3 class="skill-title">{{ sk.skill_name }}</h3>
+              <div id="skill-container">
+                <div id="skill-wrap">
+                {% if skill %}
+                {% for sk in skill %}
+                  <div id="card" data-aos="fade-up">
+                    <div class="card__image"><img src="{{ sk.get_image.url }}" alt=""></div>
+                    <div class="card__content">
+                      <div class="card__title">{{ sk.skill_name }}</div>
+                    </div>
+                  </div>
+                {% endfor %}
+                {% endif %}
                 </div>
               </div>
-            {% endfor %}
-            {% endif %}
-            </div>
-          </div>
-          </div>
       </section>
 
       <section id="work-section">
@@ -122,7 +121,8 @@
                   <div class="project-desc">
                     <h2>{{ proj.project_name }}</h2>
                     <p>{{ proj.project_description }}</p>
-                    <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+                      <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+                      <span class="project-date">{{ proj.project_date }}</span>
                   </div>
                 </div>
                 {% endfor %}
@@ -148,6 +148,7 @@
                   <h2>{{ proj.project_name }}</h2>
                   <p>{{ proj.project_description }}</p>
                   <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+                  <span class="project-date">{{ proj.project_date }}</span>
                 </div>
               </div>
               {% endfor %}
@@ -173,6 +174,7 @@
                 <h2>{{ proj.project_name }}</h2>
                 <p>{{ proj.project_description }}</p>
                 <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+                <span class="project-date">{{ proj.project_date }}</span>
               </div>
             </div>
             {% endfor %}
@@ -198,6 +200,7 @@
               <h2>{{ proj.activity_name }}</h2>
               <p>{{ proj.activity_description }}</p>
               <a href="{{ proj.activity_link }}" id="github-icon"><i class="fab fa-github"></i></a>
+              <span class="project-date">{{ proj.activity_date }}</span>
             </div>
           </div>
           {% endfor %}
@@ -233,13 +236,13 @@
             </div>
           {% endfor %}
         </div>
-        <small>&copy; Copyright 2021, Nattapol Boonyapornpong</small>
+        <small>&copy; Copyright 2021, Nattapol Boonyapornpong. Developed on 1536x492 px screen</small>
       </footer>
 
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
       <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
       <script type="text/javascript">
-            VanillaTilt.init(document.querySelectorAll(".my-profile-pic, #project-image, #skill-card"), {
+            VanillaTilt.init(document.querySelectorAll("#card, #project-image, #skill-card, #starwarsPic"), {
                 max: 10,
                 speed: 300,
                 glare: true,
