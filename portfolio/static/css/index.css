@@ -372,9 +372,9 @@ section {
 
 .my-profile-pic {
     width: 30em;
-    /* height: 30em; */
+    height: auto;
     /* border-radius: 100%; */
-    border-top-right-radius: 50%;
+    border-top-right-radius: 70%;
     overflow: hidden;
     margin: 1em 1em 0 1em;
 }
@@ -650,6 +650,11 @@ footer small {
         margin-right: 1.5em;
         overflow: visible;
     }
+    .my-profile-pic > img {
+        border-radius: 2em;
+        box-shadow: 1.5px 1.5px 3px white;
+
+    }
     .myinfo-desc h1 {
         margin-bottom: 0.7em;
     }
@@ -850,6 +855,7 @@ footer small {
         opacity: 1;
         position: relative;
         mix-blend-mode: normal;
+        margin-top: 1em;
     }
     .side-crop {
         position: absolute;

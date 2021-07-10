@@ -242,7 +242,7 @@
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
       <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
       <script type="text/javascript">
-            VanillaTilt.init(document.querySelectorAll("#card, #project-image, #skill-card, #starwarsPic"), {
+            VanillaTilt.init(document.querySelectorAll("#card, #project-image, #skill-card"), {
                 max: 10,
                 speed: 300,
                 glare: true,
@@ -259,10 +259,10 @@
             function scrollFunction() {
               if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                 document.getElementById("header").style.height = "70px";
-                document.getElementById("header").style.fontSize = "16px";
+                document.getElementById("header").style.fontSize = "15px";
               } else {
                 document.getElementById("header").style.height = "85px";
-                document.getElementById("header").style.fontSize = "17px";
+                document.getElementById("header").style.fontSize = "16px";
               }
             }
         </script>
