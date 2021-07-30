@@ -166,7 +166,7 @@
               <h1>No work available, please contact Admin!</h1>
             </div>
           {% endif %}
-            {% if intern_work %}
+            {% if freelance_work %}
             {% for proj in freelance_work %}
             <div class="each-work" data-aos="fade-up">
               <a href="{{ proj.project_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
