@@ -4,7 +4,7 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="HandheldFriendly" content="true">
@@ -212,16 +212,22 @@
       <section id="contact-section">
         <div class="contact-container">
           <div class="contact-wrap" data-aos="zoom-in">
-            <h1>Contact Me!</h1>
-            <div class="contact-input">
-              <form method="post" class="form-input">
-                  {% csrf_token %}
-                  <h3>From EMAIL: </h3>{{ form.from_email }}</h3>
-                  <h3>Subject: </h3>{{ form.subject }}
-                  <h3>Message: </h3>{{ form.message }}
-                  <button type="submit">Send</button>
-              </form>
+            <div class="contact-meme-image">
+              <img src="{% static 'images/baby_yoda.png' %}" alt="">
             </div>
+            <div class="contact-form-section">
+              <h1>Contact Me!</h1>
+              <div class="contact-input">
+                <form method="post" class="form-input">
+                    {% csrf_token %}
+                    <h3>From EMAIL: </h3>{{ form.from_email }}</h3>
+                    <h3>Subject: </h3>{{ form.subject }}
+                    <h3>Message: </h3>{{ form.message }}
+                    <button type="submit">Send</button>
+                </form>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>
