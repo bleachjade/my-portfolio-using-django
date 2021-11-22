@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Info, Skill, Work, InternshipWork, FreelanceWork, Activity, Contact
+from .models import Info, Skill, Project, Timeline, Contact
 
 class InfoAdmin(admin.ModelAdmin):
     list_display = (
@@ -13,36 +13,19 @@ class SkillAdmin(admin.ModelAdmin):
         'skill_name'
     )
 
-class WorkAdmin(admin.ModelAdmin):
+class TimelineAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'detail',
+        'date'
+    )
+
+class ProjectAdmin(admin.ModelAdmin):
     list_display = (
         'project_name',
         'project_description',
         'project_date',
         'project_link'
-    )
-
-class InternshipWorkAdmin(admin.ModelAdmin):
-    list_display = (
-        'project_name',
-        'project_description',
-        'project_date',
-        'project_link'
-    )
-
-class FreelanceWorkAdmin(admin.ModelAdmin):
-    list_display = (
-        'project_name',
-        'project_description',
-        'project_date',
-        'project_link'
-    )
-
-class ActivityAdmin(admin.ModelAdmin):
-    list_display = (
-        'activity_name',
-        'activity_description',
-        'activity_date',
-        'activity_link'
     )
 
 class ContactAdmin(admin.ModelAdmin):
@@ -54,8 +37,6 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(Info, InfoAdmin)
 admin.site.register(Skill, SkillAdmin)
-admin.site.register(Work, WorkAdmin)
-admin.site.register(InternshipWork, InternshipWorkAdmin)
-admin.site.register(FreelanceWork, FreelanceWorkAdmin)
-admin.site.register(Activity, ActivityAdmin)
+admin.site.register(Timeline, TimelineAdmin)
+admin.site.register(Project, ProjectAdmin)
 admin.site.register(Contact, ContactAdmin)
