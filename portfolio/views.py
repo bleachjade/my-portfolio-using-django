@@ -1,22 +1,18 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect, FileResponse, Http404
+from datetime import time
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError
-from .models import Info, Work, Contact, Skill, InternshipWork, FreelanceWork, Activity
+from .models import Info, Project, Contact, Skill, Timeline
 from .forms import ContactForm
-from django.conf import settings
 from django.templatetags.static import static
-
-import os
 
 
 def index(request):
     info = Info.objects.all()
-    work = Work.objects.all().order_by('-project_date')
+    project = Project.objects.all().order_by('-project_date')
     skill = Skill.objects.all()
-    intern_work = InternshipWork.objects.all().order_by('-project_date')
-    freelance_work = FreelanceWork.objects.all().order_by('-project_date')
-    activity = Activity.objects.all().order_by('-activity_date')
+    timeline = Timeline.objects.all()
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -34,13 +30,8 @@ def index(request):
             return redirect('index')
     return render(request, 'portfolio/index.html', {
         'info': info, 
-        'work': work, 
+        'work': project, 
         'form': form, 
         'skill': skill,
-        'intern_work': intern_work,
-        'freelance_work': freelance_work,
-        'activity': activity
+        'timeline': timeline
         })
-
-
-    
