@@ -12,6 +12,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/summary.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
@@ -31,223 +32,495 @@
         </label>
         <label class="logo"><a href="{% url 'index' %}">MY PORTFOLIO</a></label>
         <ul>
-          <li><a href="#">About me</a></li>
+          <li><a href="#aboutMeSection">About me</a></li>
           <li><a href="#skill-section">Skills</a></li>
           <li><a href="#work-section">Projects</a></li>
-          <li><a href="#intern-section">Internship</a></li>
-          <li><a href="#freelance-section">Freelancer</a></li>
-          <li><a href="#activity-section">Activities</a></li>
           <li><a href="#contact-section">Get in touch</a></li>
           <li><a href="{% url 'admin:index' %}">Admin</a></li>
         </ul>
       </nav>
 
       <section id="info-section">
-          <div class="myinfo-container">
-              <div class="myinfo-wrap">
-                  <div class="myinfo-desc" data-aos="fade-up">
-                    {% if info %}
-                      {% for obj in info %}
-                        <h1>{{ obj.name }}</h1>
-                        <h2>NICKNAME: {{ obj.nick_name }}</h2>
-                        <p>{{ obj.description }}</p>
-                      {% endfor %}
-                    {% endif %}
+          <div class="introduction-container">
+            <div class="intro-wrapper">
+              <div class="left-info">
+                <h1 class="text-title-big">
+                  Web Developer +
+                  <br>Web Designer
+                  <div class="roller">
+                    <span id="rolltext">Hello there<br/>
+                      <span id="spare-time">I'm Jade</span><br/>
+                      and welcome y’all to my portfolio journey!<br/>
                   </div>
-                  {% for img_obj in info %}
-                  <div class="my-profile-pic"><img src="{{ img_obj.get_profile_image.url }}" id="starwarsPic" alt="profile pic" loading="lazy" /></div>
-                  {% endfor %}
+                </h1>
+                <div class="more-below-line">
+                  <svg width="43" height="244" viewBox="0 0 43 244" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26 196.988H10.2227V193.625H12.0547C11.526 193.352 11.0065 192.859 10.4961 192.148C9.98568 191.438 9.73047 190.581 9.73047 189.578C9.73047 187.846 10.6693 186.57 12.5469 185.75C12.2917 185.622 12.0365 185.458 11.7812 185.258C11.526 185.039 11.2253 184.747 10.8789 184.383C10.5326 184 10.2591 183.517 10.0586 182.934C9.83984 182.332 9.73047 181.685 9.73047 180.992C9.73047 177.766 11.7721 176.152 15.8555 176.152H26V179.652H15.9648C14.8711 179.652 14.0508 179.807 13.5039 180.117C12.957 180.427 12.6836 180.974 12.6836 181.758C12.6836 182.688 13.0755 183.444 13.8594 184.027C14.625 184.592 15.5729 184.875 16.7031 184.875H26V188.293H15.8828C13.75 188.293 12.6836 189.004 12.6836 190.426C12.6836 191.41 13.0482 192.176 13.7773 192.723C14.5065 193.251 15.4635 193.516 16.6484 193.516H26V196.988ZM18.125 169.945C19.9479 169.945 21.306 169.572 22.1992 168.824C23.0924 168.077 23.5391 167.202 23.5391 166.199C23.5391 165.215 23.0924 164.349 22.1992 163.602C21.306 162.854 19.9479 162.48 18.125 162.48C16.2656 162.48 14.8984 162.854 14.0234 163.602C13.1302 164.349 12.6836 165.215 12.6836 166.199C12.6836 167.184 13.1302 168.059 14.0234 168.824C14.8984 169.572 16.2656 169.945 18.125 169.945ZM18.125 173.5C15.7734 173.5 13.7865 172.88 12.1641 171.641C10.5417 170.401 9.73047 168.587 9.73047 166.199C9.73047 163.829 10.5417 162.025 12.1641 160.785C13.7865 159.546 15.7734 158.926 18.125 158.926C18.8542 158.926 19.5833 158.999 20.3125 159.145C21.0417 159.272 21.7891 159.509 22.5547 159.855C23.3021 160.202 23.9674 160.639 24.5508 161.168C25.1159 161.697 25.5807 162.398 25.9453 163.273C26.3099 164.13 26.4922 165.105 26.4922 166.199C26.4922 167.275 26.319 168.25 25.9727 169.125C25.6081 169.982 25.1523 170.684 24.6055 171.23C24.0404 171.759 23.3841 172.206 22.6367 172.57C21.8711 172.917 21.1237 173.163 20.3945 173.309C19.6471 173.436 18.8906 173.5 18.125 173.5ZM26 156.082H10.2227L10.2227 152.746H11.918C11.3346 152.4 10.8242 151.908 10.3867 151.27C9.94922 150.613 9.73047 149.839 9.73047 148.945C9.73047 148.107 9.84896 147.423 10.0859 146.895H13.2305C13.0117 147.587 12.9023 148.271 12.9023 148.945C12.9023 150.13 13.3672 151.042 14.2969 151.68C15.2083 152.299 16.4297 152.609 17.9609 152.609H26V156.082ZM18.043 145.992C15.5091 145.992 13.4948 145.299 12 143.914C10.487 142.51 9.73047 140.751 9.73047 138.637C9.73047 136.559 10.487 134.845 12 133.496C13.513 132.147 15.4818 131.473 17.9063 131.473C18.3802 131.473 18.8451 131.5 19.3008 131.555V142.492C20.5039 142.492 21.543 142.137 22.418 141.426C23.2747 140.697 23.7031 139.703 23.7031 138.445C23.7031 137.57 23.4935 136.805 23.0742 136.148C22.6367 135.474 22.0807 134.964 21.4063 134.617L22.3906 131.719C23.5573 132.229 24.5326 133.059 25.3164 134.207C26.1003 135.355 26.4922 136.786 26.4922 138.5C26.4922 140.706 25.7266 142.51 24.1953 143.914C22.6641 145.299 20.6133 145.992 18.043 145.992ZM16.8672 142.438V135C15.6641 135 14.6432 135.319 13.8047 135.957C12.9479 136.595 12.5195 137.488 12.5195 138.637C12.5195 139.785 12.957 140.706 13.832 141.398C14.6888 142.073 15.7005 142.419 16.8672 142.438ZM26 121.656H3.66016V118.238H12C11.3802 117.819 10.8516 117.263 10.4141 116.57C9.95833 115.859 9.73047 115.057 9.73047 114.164C9.73047 112.232 10.4779 110.637 11.9727 109.379C13.4492 108.121 15.4909 107.492 18.0977 107.492C19.2826 107.492 20.3581 107.629 21.3242 107.902C22.2904 108.176 23.0924 108.531 23.7305 108.969C24.3503 109.406 24.8789 109.926 25.3164 110.527C25.7357 111.111 26.0365 111.703 26.2188 112.305C26.401 112.906 26.4922 113.517 26.4922 114.137C26.4922 115.066 26.2461 115.914 25.7539 116.68C25.2435 117.427 24.651 117.965 23.9766 118.293H26V121.656ZM18.0977 118.266C19.7747 118.266 21.1055 117.938 22.0898 117.281C23.056 116.607 23.5391 115.732 23.5391 114.656C23.5391 113.599 23.0742 112.733 22.1445 112.059C21.2148 111.384 19.8659 111.047 18.0977 111.047C16.4388 111.047 15.1263 111.375 14.1602 112.031C13.1758 112.669 12.6836 113.544 12.6836 114.656C12.6836 115.75 13.1849 116.625 14.1875 117.281C15.1719 117.938 16.4753 118.266 18.0977 118.266ZM18.043 105.523C15.5091 105.523 13.4948 104.831 12 103.445C10.487 102.042 9.73047 100.283 9.73047 98.168C9.73047 96.0898 10.487 94.3763 12 93.0273C13.513 91.6784 15.4818 91.0039 17.9063 91.0039C18.3802 91.0039 18.8451 91.0312 19.3008 91.0859V102.023C20.5039 102.023 21.543 101.668 22.418 100.957C23.2747 100.228 23.7031 99.2344 23.7031 97.9766C23.7031 97.1016 23.4935 96.3359 23.0742 95.6797C22.6367 95.0052 22.0807 94.4948 21.4063 94.1484L22.3906 91.25C23.5573 91.7604 24.5326 92.5898 25.3164 93.7383C26.1003 94.8867 26.4922 96.3177 26.4922 98.0312C26.4922 100.237 25.7266 102.042 24.1953 103.445C22.6641 104.831 20.6133 105.523 18.043 105.523ZM16.8672 101.969V94.5312C15.6641 94.5312 14.6432 94.8503 13.8047 95.4883C12.9479 96.1263 12.5195 97.0195 12.5195 98.168C12.5195 99.3164 12.957 100.237 13.832 100.93C14.6888 101.604 15.7005 101.951 16.8672 101.969ZM26 87.8867H3.66016L3.66016 84.4414H26V87.8867ZM18.125 77.7422C19.9479 77.7422 21.306 77.3685 22.1992 76.6211C23.0924 75.8737 23.5391 74.9987 23.5391 73.9961C23.5391 73.0117 23.0924 72.1458 22.1992 71.3984C21.306 70.651 19.9479 70.2773 18.125 70.2773C16.2656 70.2773 14.8984 70.651 14.0234 71.3984C13.1302 72.1458 12.6836 73.0117 12.6836 73.9961C12.6836 74.9805 13.1302 75.8555 14.0234 76.6211C14.8984 77.3685 16.2656 77.7422 18.125 77.7422ZM18.125 81.2969C15.7734 81.2969 13.7865 80.6771 12.1641 79.4375C10.5417 78.1979 9.73047 76.3841 9.73047 73.9961C9.73047 71.6263 10.5417 69.8216 12.1641 68.582C13.7865 67.3424 15.7734 66.7227 18.125 66.7227C18.8542 66.7227 19.5833 66.7956 20.3125 66.9414C21.0417 67.069 21.7891 67.306 22.5547 67.6523C23.3021 67.9987 23.9674 68.4362 24.5508 68.9648C25.1159 69.4935 25.5807 70.1953 25.9453 71.0703C26.3099 71.9271 26.4922 72.9023 26.4922 73.9961C26.4922 75.0716 26.319 76.0469 25.9727 76.9219C25.6081 77.7786 25.1523 78.4805 24.6055 79.0273C24.0404 79.556 23.3841 80.0026 22.6367 80.3672C21.8711 80.7135 21.1237 80.9596 20.3945 81.1055C19.6471 81.2331 18.8906 81.2969 18.125 81.2969ZM10.2227 65.5195V61.8008L18.1523 60.1602C18.7721 60.0508 20.2669 59.7773 22.6367 59.3398V59.2305C22.1263 59.1393 21.3424 58.9935 20.2852 58.793C19.2279 58.5742 18.5169 58.4284 18.1523 58.3555L10.2227 56.6875V53.0508L18.207 51.3555C18.6263 51.2826 19.3372 51.1458 20.3398 50.9453C21.3424 50.7266 22.1081 50.5716 22.6367 50.4805V50.3711C22.1263 50.2799 21.306 50.1341 20.1758 49.9336C19.0456 49.7148 18.3711 49.5872 18.1523 49.5508L10.2227 47.9375V44.2188L26 48.4844V52.3398L18.3164 54.0078C17.1497 54.2448 15.7005 54.5091 13.9688 54.8008V54.9102C14.5339 55.0013 15.3359 55.1471 16.375 55.3477C17.4141 55.5482 18.0612 55.6758 18.3164 55.7305L26 57.3984V61.2539L10.2227 65.5195Z" fill="#898989" fill-opacity="0.3"/>
+                    <line x1="42.5" y1="2.18557e-08" x2="42.5" y2="244" stroke="#898989" stroke-opacity="0.3"/>
+                    </svg>
+                </div>
               </div>
-              <div class="my-info-mobile">
-                <div class="side-crop">
-                  <img src="{% static 'images/death-star.png' %}" class="moon-background" data-aos="fade-left"></img>
-                </div>
-                <div class="myinfo-desc" data-aos="fade-up">
-                  {% if info %}
-                    {% for obj in info %}
-                      <h1>{{ obj.name }}</h1>
-                      <h2>NICKNAME: {{ obj.nick_name }}</h2>
-                      <p>{{ obj.description }}</p>
-                    {% endfor %}
-                  {% endif %}
-                </div>
-                {% for img_obj in info %}
-                <div class="my-profile-pic"><img src="{{ img_obj.get_profile_image.url }}" alt="profile pic" loading="lazy" /></div>
+              <div class="right-img-info">
+                {% for i in info %}
+                <img src="{{ i.profile_pic }}" alt="">
                 {% endfor %}
+              </div>
             </div>
           </div>
+      </section>
+      <section id="aboutMeSection">
+        <div class="introduction-container about-me-container circle-bg-right">
+          <h3 class="title-header">About me</h3>
+          {% for i in info %}
+          <p><span class="blue-text">{{ i.name }}</span> {{ i.description }} <a href="mailto:{{ i.email }}" class="blue-text underline-text">here</a></p>
+          {% endfor %}
+          <div class="cd-horizontal-timeline">
+            <div class="timeline">
+              <div class="events-wrapper">
+                <div class="events">
+                  {% if timeline %}
+                  {% for t in timeline %}
+                    <li><a href="#0" data-date="{{ t.date|date:'d/m/Y' }}">{{ t.date|date:'M Y' }}</a></li>
+                  {% endfor %}
+                  {% endif %}
+                  </ol>
+          
+                  <span class="filling-line" aria-hidden="true"></span>
+                </div> <!-- .events -->
+              </div> <!-- .events-wrapper -->
+                
+              <ul class="cd-timeline-navigation">
+                <li><a href="#0" class="prev inactive">Prev</a></li>
+                <li><a href="#0" class="next">Next</a></li>
+              </ul> <!-- .cd-timeline-navigation -->
+            </div> <!-- .timeline -->
+          
+            <div class="events-content">
+              <ol>
+                {% if timeline %}
+                {% for t in timeline %}
+                <li data-date="{{ t.date|date:'d/m/Y' }}">
+                  <h2>{{ t.title }}</h2>
+                  <p>	
+                    {{ t.detail }}
+                  </p>
+                </li>
+                {% endfor %}
+                {% endif %}
+              </ol>
+            </div> <!-- .events-content -->
+          </div>
+        </div>
       </section>
 
       <section id="skill-section">
-        <div class="work-container">
-          <div class="work-wrap" style="width: 100%;"> <!--CONTINUE HERE-->
-            <div class="skills-header">
-              <h1>Skills</h1>   
-            </div>
-            {% if not skill %}
-                <div class="no-work">
-                  <h1>No skill available, please contact Admin!</h1>
-                </div>
-              {% endif %}
-              <div id="skill-container">
-                <div id="skill-wrap">
-                {% if skill %}
-                {% for sk in skill %}
-                  <div id="card" data-aos="fade-up">
-                    <div class="card__image"><img src="{{ sk.get_image.url }}" alt=""></div>
-                    <div class="card__content">
-                      <div class="card__title">{{ sk.skill_name }}</div>
-                    </div>
-                  </div>
-                {% endfor %}
-                {% endif %}
-                </div>
-              </div>
-      </section>
+        <div class="introduction-container about-me-container">
+          <h3 class="title-header">Skills</h3>
+          <div class="slide-option">
+            <div id="infinite" class="highway-slider">
+              <div class="container highway-barrier">
+                <ul class="highway-lane">
+                  {% if skill %}
+                  {% for s in skill %}
+                  <li class="highway-car"><div class="limit-skill-img"><img src="{{ s.skill_image }}" alt=""></div><h4>{{ s.skill_name }}</h4></li>
+                  {% endfor %}
+                  {% endif %}
 
-      <section id="work-section">
-          <div class="work-container">
-              <div class="work-wrap">
-                <h1 id="section2-title" data-aos="fade-up">MY PERSONAL PROJECTS</h1>
-              {% if not work %}
-                <div class="no-work">
-                  <h1>No work available, please contact Admin!</h1>
-                </div>
-              {% endif %}
-                {% if work %}
-                {% for proj in work %}
-                <div class="each-work" data-aos="fade-up">
-                  <a href="{{ proj.project_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
-                  <div class="project-desc">
-                    <h2>{{ proj.project_name }}</h2>
-                    <p>{{ proj.project_description }}</p>
-                      <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
-                      <span class="project-date">{{ proj.project_date }}</span>
-                  </div>
-                </div>
-                {% endfor %}
-                {% endif %}
+                  {% if skill %}
+                  {% for s in skill %}
+                  <li class="highway-car"><div class="limit-skill-img"><img src="{{ s.skill_image }}" alt=""></div><h4>{{ s.skill_name }}</h4></li>
+                  {% endfor %}
+                  {% endif %}
+                </ul>
               </div>
+            </div>
           </div>
-      </section>
-
-      <section id="intern-section">
-        <div class="work-container">
-            <div class="work-wrap">
-              <h1 id="section2-title" data-aos="fade-up">MY INTERNSHIP WORKS</h1>
-            {% if not intern_work %}
-              <div class="no-work">
-                <h1>No work available, please contact Admin!</h1>
-              </div>
-            {% endif %}
-              {% if intern_work %}
-              {% for proj in intern_work %}
-              <div class="each-work" data-aos="fade-up">
-                <a href="{{ proj.project_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
-                <div class="project-desc">
-                  <h2>{{ proj.project_name }}</h2>
-                  <p>{{ proj.project_description }}</p>
-                  <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
-                  <span class="project-date">{{ proj.project_date }}</span>
-                </div>
-              </div>
-              {% endfor %}
-              {% endif %}
-            </div>
         </div>
-    </section>
-
-    <section id="freelance-section">
-      <div class="work-container">
-          <div class="work-wrap">
-            <h1 id="section2-title" data-aos="fade-up">MY FREELANCE WORKS</h1>
-          {% if not freelance_work %}
-            <div class="no-work">
-              <h1>No work available, please contact Admin!</h1>
-            </div>
-          {% endif %}
-            {% if freelance_work %}
-            {% for proj in freelance_work %}
-            <div class="each-work" data-aos="fade-up">
-              <a href="{{ proj.project_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
-              <div class="project-desc">
-                <h2>{{ proj.project_name }}</h2>
-                <p>{{ proj.project_description }}</p>
-                <a href="{{ proj.project_link }}" id="github-icon"><i class="fab fa-github"></i></a>
-                <span class="project-date">{{ proj.project_date }}</span>
-              </div>
-            </div>
-            {% endfor %}
-            {% endif %}
+      </section>
+      
+      <section id="work-section">
+        <div class="introduction-container about-me-container">
+          <h3 class="title-header">Projects</h3>
+          <div class="option-selector-container" id="item-filter-select">
+            <a value="all" href="javascript:void(0);" class="focus-option-text" id="defaultFocus">All</a>
+            <a value="website" href="javascript:void(0);" class="focus-option-text">Website</a>
+            <a value="webapp" href="javascript:void(0);" class="focus-option-text">Web-app</a>
+            <a value="wordpress" href="javascript:void(0);" class="focus-option-text">Wordpress</a>
+            <a value="uxui" href="javascript:void(0);" class="focus-option-text">UX/UI</a>
+            <a value="other" href="javascript:void(0);" class="focus-option-text">Others</a>
           </div>
-      </div>
-  </section>
-
-  <section id="activity-section">
-    <div class="work-container">
-        <div class="work-wrap">
-          <h1 id="section2-title" data-aos="fade-up">MY ACTIVITIES</h1>
-        {% if not activity %}
-          <div class="no-work">
-            <h1>No work available, please contact Admin!</h1>
-          </div>
-        {% endif %}
-          {% if activity %}
-          {% for proj in activity %}
-          <div class="each-work" data-aos="fade-up">
-            <a href="{{ proj.activity_link }}"><img src="{{ proj.get_image.url }}" id="project-image" width="500px" height="auto" loading="lazy" /></a>
-            <div class="project-desc">
-              <h2>{{ proj.activity_name }}</h2>
-              <p>{{ proj.activity_description }}</p>
-              <a href="{{ proj.activity_link }}" id="github-icon"><i class="fab fa-github"></i></a>
-              <span class="project-date">{{ proj.activity_date }}</span>
+        </div>
+        <div class="introduction-container about-me-container project-container">
+          {% if not work %}
+                <div class="no-work">
+                  <h1>No project available, please contact Admin!</h1>
+                </div>
+              {% endif %}
+          {% if work %}
+          {% for w in work %}
+          <div class="project-wrapper">
+            <div class="project-img-container">
+              <img src="{{ w.project_image }}" alt="">
+            </div>
+            <div class="project-text-box">
+              <h2 class="title">{{ w.project_name }}</h2>
+              <span class="category-box" data-category="{{ w.project_category }}">{{ w.project_category }}</span>
+              <p class="text-desc">{{ w.project_description }}</p>
             </div>
           </div>
           {% endfor %}
           {% endif %}
         </div>
-    </div>
-</section>
+          
+      </section>
 
       <section id="contact-section">
-        <div class="contact-container">
-          <div class="contact-wrap" data-aos="zoom-in">
-            <div class="contact-meme-image">
-              <img src="{% static 'images/baby_yoda.png' %}" alt="">
-            </div>
-            <div class="contact-form-section">
-              <h1>Contact Me!</h1>
-              <div class="contact-input">
-                <form method="post" class="form-input">
-                    {% csrf_token %}
-                    <h3>From EMAIL: </h3>{{ form.from_email }}</h3>
-                    <h3>Subject: </h3>{{ form.subject }}
-                    <h3>Message: </h3>{{ form.message }}
-                    <button type="submit">Send</button>
-                </form>
-              </div>
-            </div>
+        <div class="introduction-container about-me-container contact-me-container">
+          <div class="contact-me-wrapper">
             
+            <div class="left-contact-form">
+              <h2>Contact me</h2>
+              <form method="post" class="contact-form">
+                {% csrf_token %}
+                <div>
+                  <h3>Subject</h3>{{ form.subject }}
+                </div>
+                <div>
+                  <h3>EMAIL</h3>{{ form.from_email }}</h3>
+                </div>
+                <div>
+                  <h3>Message</h3>{{ form.message }}
+                </div>
+                <button type="submit"><svg width="29" height="14" viewBox="0 0 29 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.322 4.45699H0.776784C0.347805 4.45699 0 4.79857 0 5.21988V8.78006C0 9.20137 0.347805 9.54295 0.776784 9.54295H20.322V12.4711C20.322 13.8305 21.9954 14.5112 22.9742 13.5501L28.5449 8.07889C29.1517 7.48301 29.1517 6.51693 28.5449 5.92111L22.9742 0.449945C21.9955 -0.511239 20.322 0.169518 20.322 1.52887V4.45699V4.45699Z" fill="#08F5D1"/>
+                  </svg></button>
+              </form>
+            </div>
+            <div class="right-contact-info">
+              <ul>
+                {% if info %}
+                {% for i in info %}
+                <li><a href="mailto:{{ i.email }}"><i class="fas fa-envelope fa-3x"></i></a><div class="vl"></div></li>
+                <li><a href="tel:{{ i.phone }}"><i class="fas fa-phone-square-alt fa-3x"></i></a><div class="vl"></div></li>
+                <li><a href="{{ i.instagram }}" target="_blank"><i class="fab fa-instagram fa-3x"></i></a><div class="vl"></div></li>
+                <li><a href="{{ i.github }}" target="_blank"><i class="fab fa-github fa-3x"></i></a><div class="vl"></div></li>
+                {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       <footer>
-        <div class="footer-container">
-          {% for f in info %}
-            <div class="footer-wrap">
-              <a href="mailto:{{ f.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-              <a href="{{ f.instagram }}"><i class="fab fa-instagram"></i></a>
-              <a href="{{ f.github }}"><i class="fab fa-github"></i></a>
-            </div>
-          {% endfor %}
-        </div>
-        <small>&copy; Copyright 2021, Nattapol Boonyapornpong. Developed on 1536x492 px screen</small>
+        <small>&copy; Developed by Django and made with <span style="position: relative; width: 25px;">
+          <svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.5738 1.49576C19.8981 -0.784512 15.9186 -0.374356 13.4625 2.15982L12.5006 3.15104L11.5387 2.15982C9.08751 -0.374356 5.10314 -0.784512 2.42736 1.49576C-0.639049 4.11295 -0.800182 8.81021 1.94396 11.6471L11.3922 21.403C12.0026 22.0329 12.9938 22.0329 13.6041 21.403L23.0524 11.6471C25.8014 8.81021 25.6402 4.11295 22.5738 1.49576Z" fill="#08F5D1"/>
+          </svg></span> by Me</small>
       </footer>
 
       <script type="text/javascript" src="../../static/js/vanilla-tilt.js"></script>
       <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
       <script type="text/javascript">
+        jQuery(document).ready(function($){
+          var timelines = $('.cd-horizontal-timeline'),
+            eventsMinDistance = 60;
+
+          (timelines.length > 0) && initTimeline(timelines);
+
+          function initTimeline(timelines) {
+            timelines.each(function(){
+              var timeline = $(this),
+                timelineComponents = {};
+              //cache timeline components 
+              timelineComponents['timelineWrapper'] = timeline.find('.events-wrapper');
+              timelineComponents['eventsWrapper'] = timelineComponents['timelineWrapper'].children('.events');
+              timelineComponents['fillingLine'] = timelineComponents['eventsWrapper'].children('.filling-line');
+              timelineComponents['timelineEvents'] = timelineComponents['eventsWrapper'].find('a');
+              timelineComponents['timelineDates'] = parseDate(timelineComponents['timelineEvents']);
+              timelineComponents['eventsMinLapse'] = minLapse(timelineComponents['timelineDates']);
+              timelineComponents['timelineNavigation'] = timeline.find('.cd-timeline-navigation');
+              timelineComponents['eventsContent'] = timeline.children('.events-content');
+
+              //assign a left postion to the single events along the timeline
+              setDatePosition(timelineComponents, eventsMinDistance);
+              //assign a width to the timeline
+              var timelineTotWidth = setTimelineWidth(timelineComponents, eventsMinDistance);
+              //the timeline has been initialize - show it
+              timeline.addClass('loaded');
+
+              //detect click on the next arrow
+              timelineComponents['timelineNavigation'].on('click', '.next', function(event){
+                event.preventDefault();
+                updateSlide(timelineComponents, timelineTotWidth, 'next');
+              });
+              //detect click on the prev arrow
+              timelineComponents['timelineNavigation'].on('click', '.prev', function(event){
+                event.preventDefault();
+                updateSlide(timelineComponents, timelineTotWidth, 'prev');
+              });
+              //detect click on the a single event - show new event content
+              timelineComponents['eventsWrapper'].on('click', 'a', function(event){
+                event.preventDefault();
+                timelineComponents['timelineEvents'].removeClass('selected');
+                $(this).addClass('selected');
+                updateOlderEvents($(this));
+                updateFilling($(this), timelineComponents['fillingLine'], timelineTotWidth);
+                updateVisibleContent($(this), timelineComponents['eventsContent']);
+              });
+
+              //on swipe, show next/prev event content
+              timelineComponents['eventsContent'].on('swipeleft', function(){
+                var mq = checkMQ();
+                ( mq == 'mobile' ) && showNewContent(timelineComponents, timelineTotWidth, 'next');
+              });
+              timelineComponents['eventsContent'].on('swiperight', function(){
+                var mq = checkMQ();
+                ( mq == 'mobile' ) && showNewContent(timelineComponents, timelineTotWidth, 'prev');
+              });
+
+              //keyboard navigation
+              $(document).keyup(function(event){
+                if(event.which=='37' && elementInViewport(timeline.get(0)) ) {
+                  showNewContent(timelineComponents, timelineTotWidth, 'prev');
+                } else if( event.which=='39' && elementInViewport(timeline.get(0))) {
+                  showNewContent(timelineComponents, timelineTotWidth, 'next');
+                }
+              });
+            });
+          }
+
+          function updateSlide(timelineComponents, timelineTotWidth, string) {
+            //retrieve translateX value of timelineComponents['eventsWrapper']
+            var translateValue = getTranslateValue(timelineComponents['eventsWrapper']),
+              wrapperWidth = Number(timelineComponents['timelineWrapper'].css('width').replace('px', ''));
+            //translate the timeline to the left('next')/right('prev') 
+            (string == 'next') 
+              ? translateTimeline(timelineComponents, translateValue - wrapperWidth + eventsMinDistance, wrapperWidth - timelineTotWidth)
+              : translateTimeline(timelineComponents, translateValue + wrapperWidth - eventsMinDistance);
+          }
+
+          function showNewContent(timelineComponents, timelineTotWidth, string) {
+            //go from one event to the next/previous one
+            var visibleContent =  timelineComponents['eventsContent'].find('.selected'),
+              newContent = ( string == 'next' ) ? visibleContent.next() : visibleContent.prev();
+
+            if ( newContent.length > 0 ) { //if there's a next/prev event - show it
+              var selectedDate = timelineComponents['eventsWrapper'].find('.selected'),
+                newEvent = ( string == 'next' ) ? selectedDate.parent('li').next('li').children('a') : selectedDate.parent('li').prev('li').children('a');
+              
+              updateFilling(newEvent, timelineComponents['fillingLine'], timelineTotWidth);
+              updateVisibleContent(newEvent, timelineComponents['eventsContent']);
+              newEvent.addClass('selected');
+              selectedDate.removeClass('selected');
+              updateOlderEvents(newEvent);
+              updateTimelinePosition(string, newEvent, timelineComponents, timelineTotWidth);
+            }
+          }
+
+          function updateTimelinePosition(string, event, timelineComponents, timelineTotWidth) {
+            //translate timeline to the left/right according to the position of the selected event
+            var eventStyle = window.getComputedStyle(event.get(0), null),
+              eventLeft = Number(eventStyle.getPropertyValue("left").replace('px', '')),
+              timelineWidth = Number(timelineComponents['timelineWrapper'].css('width').replace('px', '')),
+              timelineTotWidth = Number(timelineComponents['eventsWrapper'].css('width').replace('px', ''));
+            var timelineTranslate = getTranslateValue(timelineComponents['eventsWrapper']);
+
+                if( (string == 'next' && eventLeft > timelineWidth - timelineTranslate) || (string == 'prev' && eventLeft < - timelineTranslate) ) {
+                  translateTimeline(timelineComponents, - eventLeft + timelineWidth/2, timelineWidth - timelineTotWidth);
+                }
+          }
+
+          function translateTimeline(timelineComponents, value, totWidth) {
+            var eventsWrapper = timelineComponents['eventsWrapper'].get(0);
+            value = (value > 0) ? 0 : value; //only negative translate value
+            value = ( !(typeof totWidth === 'undefined') &&  value < totWidth ) ? totWidth : value; //do not translate more than timeline width
+            setTransformValue(eventsWrapper, 'translateX', value+'px');
+            //update navigation arrows visibility
+            (value == 0 ) ? timelineComponents['timelineNavigation'].find('.prev').addClass('inactive') : timelineComponents['timelineNavigation'].find('.prev').removeClass('inactive');
+            (value == totWidth ) ? timelineComponents['timelineNavigation'].find('.next').addClass('inactive') : timelineComponents['timelineNavigation'].find('.next').removeClass('inactive');
+          }
+
+          function updateFilling(selectedEvent, filling, totWidth) {
+            //change .filling-line length according to the selected event
+            var eventStyle = window.getComputedStyle(selectedEvent.get(0), null),
+              eventLeft = eventStyle.getPropertyValue("left"),
+              eventWidth = eventStyle.getPropertyValue("width");
+            eventLeft = Number(eventLeft.replace('px', '')) + Number(eventWidth.replace('px', ''))/2;
+            var scaleValue = eventLeft/totWidth;
+            setTransformValue(filling.get(0), 'scaleX', scaleValue);
+          }
+
+          function setDatePosition(timelineComponents, min) {
+            for (i = 0; i < timelineComponents['timelineDates'].length; i++) { 
+                var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
+                  distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;
+                timelineComponents['timelineEvents'].eq(i).css('left', distanceNorm*min+'px');
+            }
+          }
+
+          function setTimelineWidth(timelineComponents, width) {
+            var timeSpan = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][timelineComponents['timelineDates'].length-1]),
+              timeSpanNorm = timeSpan/timelineComponents['eventsMinLapse'],
+              timeSpanNorm = Math.round(timeSpanNorm) + 4,
+              totalWidth = timeSpanNorm*width;
+            timelineComponents['eventsWrapper'].css('width', totalWidth+'px');
+            updateFilling(timelineComponents['timelineEvents'].eq(0), timelineComponents['fillingLine'], totalWidth);
+          
+            return totalWidth;
+          }
+
+          function updateVisibleContent(event, eventsContent) {
+            var eventDate = event.data('date'),
+              visibleContent = eventsContent.find('.selected'),
+              selectedContent = eventsContent.find('[data-date="'+ eventDate +'"]'),
+              selectedContentHeight = selectedContent.height();
+
+            if (selectedContent.index() > visibleContent.index()) {
+              var classEnetering = 'selected enter-right',
+                classLeaving = 'leave-left';
+            } else {
+              var classEnetering = 'selected enter-left',
+                classLeaving = 'leave-right';
+            }
+
+            selectedContent.attr('class', classEnetering);
+            visibleContent.attr('class', classLeaving).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
+              visibleContent.removeClass('leave-right leave-left');
+              selectedContent.removeClass('enter-left enter-right');
+            });
+            eventsContent.css('height', selectedContentHeight+'px');
+          }
+
+          function updateOlderEvents(event) {
+            event.parent('li').prevAll('li').children('a').addClass('older-event').end().end().nextAll('li').children('a').removeClass('older-event');
+          }
+
+          function getTranslateValue(timeline) {
+            var timelineStyle = window.getComputedStyle(timeline.get(0), null),
+              timelineTranslate = timelineStyle.getPropertyValue("-webkit-transform") ||
+                    timelineStyle.getPropertyValue("-moz-transform") ||
+                    timelineStyle.getPropertyValue("-ms-transform") ||
+                    timelineStyle.getPropertyValue("-o-transform") ||
+                    timelineStyle.getPropertyValue("transform");
+
+                if( timelineTranslate.indexOf('(') >=0 ) {
+                  var timelineTranslate = timelineTranslate.split('(')[1];
+                timelineTranslate = timelineTranslate.split(')')[0];
+                timelineTranslate = timelineTranslate.split(',');
+                var translateValue = timelineTranslate[4];
+                } else {
+                  var translateValue = 0;
+                }
+
+                return Number(translateValue);
+          }
+
+          function setTransformValue(element, property, value) {
+            element.style["-webkit-transform"] = property+"("+value+")";
+            element.style["-moz-transform"] = property+"("+value+")";
+            element.style["-ms-transform"] = property+"("+value+")";
+            element.style["-o-transform"] = property+"("+value+")";
+            element.style["transform"] = property+"("+value+")";
+          }
+
+          //based on http://stackoverflow.com/questions/542938/how-do-i-get-the-number-of-days-between-two-dates-in-javascript
+          function parseDate(events) {
+            var dateArrays = [];
+            events.each(function(){
+              var dateComp = $(this).data('date').split('/'),
+                newDate = new Date(dateComp[2], dateComp[1]-1, dateComp[0]);
+              dateArrays.push(newDate);
+            });
+              return dateArrays;
+          }
+
+          function parseDate2(events) {
+            var dateArrays = [];
+            events.each(function(){
+              var singleDate = $(this),
+                dateComp = singleDate.data('date').split('T');
+              if( dateComp.length > 1 ) { //both DD/MM/YEAR and time are provided
+                var dayComp = dateComp[0].split('/'),
+                  timeComp = dateComp[1].split(':');
+              } else if( dateComp[0].indexOf(':') >=0 ) { //only time is provide
+                var dayComp = ["2000", "0", "0"],
+                  timeComp = dateComp[0].split(':');
+              } else { //only DD/MM/YEAR
+                var dayComp = dateComp[0].split('/'),
+                  timeComp = ["0", "0"];
+              }
+              var	newDate = new Date(dayComp[2], dayComp[1]-1, dayComp[0], timeComp[0], timeComp[1]);
+              dateArrays.push(newDate);
+            });
+              return dateArrays;
+          }
+
+          function daydiff(first, second) {
+              return Math.round((second-first));
+          }
+
+          function minLapse(dates) {
+            //determine the minimum distance among events
+            var dateDistances = [];
+            for (i = 1; i < dates.length; i++) { 
+                var distance = daydiff(dates[i-1], dates[i]);
+                dateDistances.push(distance);
+            }
+            return Math.min.apply(null, dateDistances);
+          }
+
+          /*
+            How to tell if a DOM element is visible in the current viewport?
+            http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+          */
+          function elementInViewport(el) {
+            var top = el.offsetTop;
+            var left = el.offsetLeft;
+            var width = el.offsetWidth;
+            var height = el.offsetHeight;
+
+            while(el.offsetParent) {
+                el = el.offsetParent;
+                top += el.offsetTop;
+                left += el.offsetLeft;
+            }
+
+            return (
+                top < (window.pageYOffset + window.innerHeight) &&
+                left < (window.pageXOffset + window.innerWidth) &&
+                (top + height) > window.pageYOffset &&
+                (left + width) > window.pageXOffset
+            );
+          }
+
+          function checkMQ() {
+            //check if mobile or desktop device
+            return window.getComputedStyle(document.querySelector('.cd-horizontal-timeline'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
+          }
+        });
+      </script>
+      <script type="text/javascript">
+            jQuery(document).ready(function () {
+              var back = ["#08F5D1","#F4ED7C","#EC9E59", "#B5E8BF"];
+              var rand = back[Math.floor(Math.random() * back.length)];
+              jQuery('.category-box').css('background', rand);
+            });
+
+            jQuery(document).ready(function($){
+                $("#defaultFocus").focus();
+                /*Select option*/
+                $('#item-filter-select > a').on('click', function() {
+                    let article = $('.project-wrapper').hide();
+                    let value = this.getAttribute('value');
+                    if (value == 'all') {
+                        $('.project-wrapper').fadeIn(300).show();
+                    } else {
+                        let elems = $('.project-wrapper .category-box[data-category="' + value + '"]');
+                        elems.closest('.project-wrapper').fadeIn(300).show();
+                    }
+                });
+            });
             VanillaTilt.init(document.querySelectorAll("#card, #project-image, #skill-card"), {
                 max: 10,
                 speed: 300,
