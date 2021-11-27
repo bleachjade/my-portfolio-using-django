@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Info, Skill, Project, Timeline, Contact
+from .models import Info, Skill, Project, Contact
 
 class InfoAdmin(admin.ModelAdmin):
     list_display = (
@@ -11,13 +11,6 @@ class InfoAdmin(admin.ModelAdmin):
 class SkillAdmin(admin.ModelAdmin):
     display = (
         'skill_name'
-    )
-
-class TimelineAdmin(admin.ModelAdmin):
-    list_display = (
-        'title',
-        'detail',
-        'date'
     )
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -37,6 +30,5 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(Info, InfoAdmin)
 admin.site.register(Skill, SkillAdmin)
-admin.site.register(Timeline, TimelineAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Contact, ContactAdmin)
