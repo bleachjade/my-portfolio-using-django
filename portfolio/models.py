@@ -19,7 +19,7 @@ class Info(models.Model):
     phone = models.CharField("phone", max_length=128, default='+66981322686')
     instagram = models.URLField('IG', max_length=200, default='https://instagram.com/jadenttp')
     github = models.URLField('Github', max_length=200, default='https://github.com/bleachjade')
-    resume = models.FileField("Resume", upload_to='resume/', null=True)
+    resume = models.URLField("Resume", max_length=200, default='https://drive.google.com/file/d/1nb04UNLb4J2hRhoOSojS7PW_846Bp02C/view?usp=sharing')
 
     def get_profile_image(self):
         return self.profile_pic
