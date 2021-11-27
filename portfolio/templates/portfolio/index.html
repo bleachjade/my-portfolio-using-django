@@ -121,16 +121,18 @@
               {% endif %}
           {% if work %}
           {% for w in work %}
-          <div class="project-wrapper">
-            <div class="project-img-container">
-              <img src="https://res.cloudinary.com/kasetsart-university/image/upload/{{ w.project_image }}" alt="">
+          <a href="{{ w.project_link }}">
+            <div class="project-wrapper">
+              <div class="project-img-container">
+                <img src="https://res.cloudinary.com/kasetsart-university/image/upload/{{ w.project_image }}" alt="">
+              </div>
+              <div class="project-text-box">
+                <h2 class="title">{{ w.project_name }}</h2>
+                <span class="category-box" data-category="{{ w.project_category }}">{{ w.project_category }}</span>
+                <p class="text-desc">{{ w.project_description }}</p>
+              </div>
             </div>
-            <div class="project-text-box">
-              <h2 class="title">{{ w.project_name }}</h2>
-              <span class="category-box" data-category="{{ w.project_category }}">{{ w.project_category }}</span>
-              <p class="text-desc">{{ w.project_description }}</p>
-            </div>
-          </div>
+          </a>
           {% endfor %}
           {% endif %}
         </div>
