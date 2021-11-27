@@ -19,7 +19,7 @@ class Info(models.Model):
     phone = models.CharField("phone", max_length=128, default='+66981322686')
     instagram = models.URLField('IG', max_length=200, default='https://instagram.com/jadenttp')
     github = models.URLField('Github', max_length=200, default='https://github.com/bleachjade')
-    resume = CloudinaryField("resume", proxy="http://proxy.server:3128", null=True)
+    resume = models.FileField("Resume", upload_to='resume/', null=True)
 
     def get_profile_image(self):
         return self.profile_pic

@@ -74,7 +74,7 @@
           <h3 class="title-header">About me</h3>
           {% for i in info %}
           <p><span class="blue-text">{{ i.name }}</span> {{ i.description }} <a href="mailto:{{ i.email }}" class="blue-text underline-text">here</a></p>
-          <a href="https://res.cloudinary.com/kasetsart-university/image/upload/{{ i.resume }}" class="resume-button" target="_blank">My Resumé</a>
+          <a href="{{ i.resume }}" class="resume-button" target="_blank">My Resumé</a>
           {% endfor %}
         </div>
       </section>
