@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError
-from .models import Info, Project, Contact, Skill, Timeline
+from .models import Info, Project, Contact, Skill
 from .forms import ContactForm
 from django.templatetags.static import static
 
@@ -12,7 +12,6 @@ def index(request):
     info = Info.objects.all()
     project = Project.objects.all().order_by('-project_date')
     skill = Skill.objects.all()
-    timeline = Timeline.objects.all()
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -33,5 +32,4 @@ def index(request):
         'work': project, 
         'form': form, 
         'skill': skill,
-        'timeline': timeline
         })
