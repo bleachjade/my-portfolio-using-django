@@ -274,6 +274,7 @@ nav ul li a{
     color: white;
     padding: 7px 13px;
     border-radius: 3px;
+    font-weight: bold;
     text-transform: uppercase;
     background: none;
     text-shadow: 0.5px 0 black, -0.5px 0 black, 0 0.5px black, 0 -0.5px black;
@@ -380,25 +381,59 @@ a.active,a:hover{
     padding: 0 12em;
 }
 .circle-bg-right {
-    background-image: url(../images/3circle.svg);
-    background-position: 88% 0%;
+    background-image: url(../images/2circle.svg);
+    background-position: center;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 65%;
 }
 .title-header {
     font-weight: bold;
     font-size: 28px;
     line-height: 35px;
+    text-align: center;
+    color: #fff;
+}
+.highway-car h4{
+    color: #fff;
+}
+.about-me-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
 }
 .about-me-container p {
     font-weight: 500;
     font-size: 20px;
     line-height: 25px;
 
-    width: 55%;
+    width: 50%;
     margin-top: 2rem;
+    text-align: left;
+}
+.resume-button {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+    background-color:#E5E5E5CC;
+    padding: 0.9em;
+    margin: 1em 0;
+
+    filter: drop-shadow(10px 10px 0px rgba(137, 137, 137, 0.3));
+    border-radius: 10px;
+    transition: all 0.4s;
+}
+.resume-button a:-webkit-any-link {
+    color: #000000;
 }
 .blue-text {
+    color: #08F5D1;
+    transition: all .2s;
+}
+.blue-text:hover {
     color: #08F5D1;
 }
 .underline-text {
@@ -936,6 +971,7 @@ Main Components
 /* section */
 section {
     height: calc(120vh - 80px);
+    padding: 0 1em;
 }
 #work-section, #intern-section, #skill-section, #freelance-section, #activity-section, #contact-section {
     height: 100%;
@@ -1352,22 +1388,26 @@ footer small {
     .checkbtn{
         display: block;
     }
-    ul{
+    #header ul{
         position: fixed;
         z-index: 999;
         width: 100%;
-        height: 100vh;
+        height: auto;
         overflow-y: scroll;
-        background: rgb(184, 184, 184);
-        opacity: 0.95;
+        background: #868686;
+        opacity: 0.9;
         top: 80px;
         left: 100%;
         text-align: end;
         transition: all .3s;
     }
+    #skill-section ul {
+        overflow-y: scroll;
+    }
+    
     nav ul li{
         display: block;
-        margin: 50px 30px;
+        margin: 3em 2em;
         line-height: 50px;
     }
     nav ul li a{
@@ -1412,14 +1452,62 @@ footer small {
         margin-right: 0;
     }
 }
-
+@media (max-width: 1200px){
+    .text-title-big {
+        font-size: 48px;
+    }
+    .about-me-container p {
+        width: 70%;
+    }
+    .filter-con p {
+        width: 100%;
+    }
+    .left-contact-form h2 {
+        font-size: 48px;
+    }
+}
+@media (max-width: 1140px){
+    .project-wrapper {
+        flex-direction: column;
+    }
+    .project-img-container {
+        width: 100%;
+    }
+    .project-img-container img {
+        width: 100%;
+        height: 250px;
+        margin: -2em 0 0 0em;
+    }
+    .project-text-box .title {
+        font-size: 1.3rem;
+    }
+    .category-box {
+        font-size: 0.9rem;
+    }
+    .option-selector-container {
+        width: 75%;
+    }
+    .contact-me-wrapper {
+        flex-direction: column;
+    }
+    .left-contact-form {
+        width: 100%;
+    }
+    .right-contact-info {
+        width: 100%;
+        padding: 0;
+    }
+    .left-contact-form h2 {
+        text-align: center;
+    }
+}
 @media (max-width: 989px){
     label.logo{
         font-size: 26px;
         padding-left: 50px;
     }
     nav ul li a{
-        font-size: 14.8px;
+        font-size: 20px;
     }
     .each-work .project-desc {
         margin: 1.5em;
@@ -1429,6 +1517,97 @@ footer small {
         width: 90%;
         margin: 2em;
         padding: 1.5em;
+    }
+}
+@media (max-width: 460px) {
+    .introduction-container {
+        padding: 8em 0 4em 0;
+    }
+    .intro-wrapper {
+        flex-direction: column;
+    }
+    .text-title-big {
+        font-size: 32px;
+        line-height: 42px;
+        text-align: center;
+        width: 100%;
+    }
+    .roller {
+        font-size: 26px;
+        text-align: center;
+    }
+    .roller #rolltext {
+        animation: slide 3.5s infinite;  
+      }
+      
+      @keyframes slide {
+        0%{
+          top:0;
+        }
+        25%{
+          top: -3rem;    
+        }
+        50%{
+          top: -6rem;
+        }
+        75%{
+            top: -9rem;
+        }
+        100%{
+            top: -12rem;
+        }
+      }
+    .more-below-line {
+        display: none;
+    }
+    .right-img-info {
+        width: 100%;
+        margin: 1em 0 0 0;
+        display: flex;
+        justify-content: center;
+    }
+    .right-img-info img{
+        height: 390px;
+        width: 326px;
+        object-fit: contain;
+    }
+    .about-me-container {
+        align-items: flex-start;
+    }
+    .title-header {
+        font-size: 24px;
+        line-height: 30px;
+        text-align: left;
+    }
+    .about-me-container p {
+        font-size: 1rem;
+        line-height: 20px;
+        width: 100%;
+    }
+    .resume-button {
+        font-size: 22px;
+        line-height: 27px;
+        width: 100%;
+    }
+    #aboutMeSection {
+        height: 100%;
+    }
+    #work-section .introduction-container {
+        padding: 0;
+    }
+    .option-selector-container {
+        width: 100%;
+        padding: 0 0.3rem;
+    }
+    .slider-option {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    div.highway-slider div.highway-barrier {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
 
@@ -1559,7 +1738,7 @@ footer small {
         margin-bottom: 6em;
     }
     #info-section {
-        height: calc(150vh - 100px);
+        height: 100%;
         margin-bottom: 1em;
     }
     .work-wrap {
@@ -1650,52 +1829,7 @@ footer small {
 }
 
 /*less skill converter*/
-section {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-}
-section div.container {
-    transition: all .3s ease;
-}
-section div.container h1 {
-    margin: 15px 0 0 0;
-}
-section div.container h3 {
-    margin: 0 0 25px 0;
-}
-@media (max-width: 992px) {
-    section {
-        padding: 0 20px 0 20px;
-   }
-}
-div.slide-option {
-    margin: 1rem 0;
-}
-div.slide-option .no-marg {
-    margin: 0 0 0 0;
-}
-div.highway-slider {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 150px;
-}
-div.highway-slider div.highway-barrier {
-    overflow: hidden;
-    position: relative;
-}
-div.highway-slider ul.highway-lane {
-    display: flex;
-    height: 100%;
-}
-div.highway-slider ul.highway-lane li.highway-car {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+
 div.highway-slider ul.highway-lane li.highway-car .limit-skill-img {
     width: 100%;
     max-width: 100px;
@@ -1714,57 +1848,9 @@ div.highway-slider ul.highway-lane li.highway-car h4 {
 #contact-section {
     margin: 1em 0;
 }
-@keyframes translatestf {
-    0% {
-        transform: translateX(100%);
-   }
-    100% {
-        transform: translateX(-500%);
-   }
-}
-#stffull div.highway-barrier ul.highway-lane {
-    width: 500%;
-}
-#stffull div.highway-barrier ul.highway-lane li.highway-car {
-    animation: translatestf 30s linear infinite;
-}
 #stffull div.highway-barrier ul.highway-lane li.highway-car h4 {
     font-size: 28px;
 }
-@keyframes translateinfinite {
-    100% {
-        transform: translateX(calc(-2160px));
-   }
-}
-#infinite div.highway-barrier::before, #infinite div.highway-barrier::after {
-    content: " ";
-    position: absolute;
-    z-index: 9;
-    width: 180px;
-    height: 100%;
-}
-#infinite div.highway-barrier ul.highway-lane {
-    width: calc(4320px);
-}
-#infinite div.highway-barrier ul.highway-lane li.highway-car {
-    width: 180px;
-    animation: translateinfinite 25s linear infinite;
-}
-#infinite div.highway-barrier ul.highway-lane li.highway-car span.fab {
-    font-size: 65px;
-}
-#red {
-    background: #cb5454;
-}
-#orange {
-    background: #cb8054;
-}
-#yellow {
-    background: #cbba54;
-}
-#green {
-    background: #69b46e;
-}
-#blue {
-    background: #6091b0;
+.highway-car {
+    flex-direction: column;
 }
