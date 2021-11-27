@@ -128,7 +128,10 @@
               </div>
               <div class="project-text-box">
                 <h2 class="title">{{ w.project_name }}</h2>
-                <span class="category-box" data-category="{{ w.project_category }}">{{ w.project_category }}</span>
+                <div style="display: flex;">
+                  <span class="category-box" data-category="{{ w.project_category }}">{{ w.project_category }}</span>
+                  <span class="category-box category-box-two">{{ w.project_date }}</span>
+                </div>
                 <p class="text-desc">{{ w.project_description }}</p>
               </div>
             </div>
@@ -188,7 +191,9 @@
             jQuery(document).ready(function () {
               var back = ["#08F5D1","#F4ED7C","#EC9E59", "#B5E8BF"];
               var rand = back[Math.floor(Math.random() * back.length)];
+              var rand2 = back[Math.floor(Math.random() * back.length)];
               jQuery('.category-box').css('background', rand);
+              jQuery('.category-box-two').css('background', rand2);
             });
 
             jQuery(document).ready(function($){
