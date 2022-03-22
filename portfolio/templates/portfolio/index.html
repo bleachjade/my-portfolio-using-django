@@ -199,7 +199,9 @@
             });
 
             jQuery(document).ready(function($){
-                $("#defaultFocus").focus();
+              window.setTimeout(function () { 
+                    document.getElementById('defaultFocus').focus(); 
+                }, 0); 
                 /*Select option*/
                 $('#item-filter-select > a').on('click', function() {
                     let article = $('.project-wrapper').hide();
