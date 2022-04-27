@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Info, Skill, Project, Contact
+from .models import Category, Info, Skill, Project, Contact
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'slug'
+    )
 
 class InfoAdmin(admin.ModelAdmin):
     list_display = (
@@ -9,8 +15,9 @@ class InfoAdmin(admin.ModelAdmin):
     )
 
 class SkillAdmin(admin.ModelAdmin):
-    display = (
-        'skill_name'
+    list_display = (
+        'skill_name',
+        'skill_image'
     )
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -28,6 +35,7 @@ class ContactAdmin(admin.ModelAdmin):
         'message'
     )
 
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Info, InfoAdmin)
 admin.site.register(Skill, SkillAdmin)
 admin.site.register(Project, ProjectAdmin)

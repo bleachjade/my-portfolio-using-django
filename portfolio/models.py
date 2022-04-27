@@ -9,6 +9,15 @@ CATEGORY_CHOICES = (
     ('other', 'Others')   
 )
 
+class Category(models.Model):
+    title = models.CharField(max_length=30)
+    slug = models.CharField(max_length=30, null=True)
+
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
 
 class Info(models.Model):
     profile_pic = CloudinaryField("profile_pic", proxy="http://proxy.server:3128")
@@ -35,7 +44,8 @@ class Project(models.Model):
     project_image = CloudinaryField("Project image", proxy="http://proxy.server:3128")
     project_name = models.CharField('Project name', max_length=70)
     project_description = models.CharField("Project description", max_length=500)
-    project_category = models.CharField(max_length=9, choices=CATEGORY_CHOICES, default='website')
+    # project_category = models.CharField(max_length=9, choices=CATEGORY_CHOICES, default='website')
+    project_category = models.ManyToManyField(Category)
     project_date = models.DateField("Project Date", default=now)
     project_link = models.URLField('Project URL', max_length=128, default='https://github.com/bleachjade')
 

@@ -89,13 +89,38 @@
                 <ul class="highway-lane">
                   {% if skill %}
                   {% for s in skill %}
+                  {% if forloop.counter0 < 10 %}
                   <li class="highway-car"><div class="limit-skill-img"><img src="https://res.cloudinary.com/kasetsart-university/image/upload/{{ s.skill_image }}" alt=""></div><h4>{{ s.skill_name }}</h4></li>
+                  {% endif %}
                   {% endfor %}
                   {% endif %}
 
                   {% if skill %}
                   {% for s in skill %}
+                  {% if forloop.counter0 < 10 %}
                   <li class="highway-car"><div class="limit-skill-img"><img src="https://res.cloudinary.com/kasetsart-university/image/upload/{{ s.skill_image }}" alt=""></div><h4>{{ s.skill_name }}</h4></li>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+            <div id="infinite" class="highway-slider">
+              <div class="container highway-barrier">
+                <ul class="highway-lane">
+                  {% if skill %}
+                  {% for s in skill %}
+                  {% if forloop.counter0 >= 10 %}
+                  <li class="highway-car"><div class="limit-skill-img"><img src="https://res.cloudinary.com/kasetsart-university/image/upload/{{ s.skill_image }}" alt=""></div><h4>{{ s.skill_name }}</h4></li>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+
+                  {% if skill %}
+                  {% for s in skill %}
+                  {% if forloop.counter0 >= 10 %}
+                  <li class="highway-car"><div class="limit-skill-img"><img src="https://res.cloudinary.com/kasetsart-university/image/upload/{{ s.skill_image }}" alt=""></div><h4>{{ s.skill_name }}</h4></li>
+                  {% endif %}
                   {% endfor %}
                   {% endif %}
                 </ul>
@@ -130,9 +155,11 @@
               </div>
               <div class="project-text-box">
                 <h2 class="title">{{ w.project_name }}</h2>
-                <div style="display: flex;">
-                  <span class="category-box" data-category="{{ w.project_category }}">{{ w.project_category }}</span>
-                  <span class="category-box category-box-two" style="margin-left: 1rem;">{{ w.project_date }}</span>
+                <div style="display: flex; flex-wrap: wrap; row-gap: 0.75rem; column-gap: 0.75rem;">
+                  {% for cat in w.project_category.all %}
+                  <span class="category-box" data-category="{{ cat.slug }}">{{ cat }}</span>
+                  {% endfor %}
+                  <span class="category-box category-box-two">{{ w.project_date }}</span>
                 </div>
                 <p class="text-desc">{{ w.project_description }}</p>
               </div>
@@ -200,7 +227,8 @@
 
             jQuery(document).ready(function($){
               window.setTimeout(function () { 
-                    document.getElementById('defaultFocus').focus(); 
+                    // document.getElementById('defaultFocus').focus();
+                    jQuery('.focus-option-text:first-child').focus(); 
                 }, 0); 
                 /*Select option*/
                 $('#item-filter-select > a').on('click', function() {
